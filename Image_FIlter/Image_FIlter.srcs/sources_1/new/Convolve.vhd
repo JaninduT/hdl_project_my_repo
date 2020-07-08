@@ -53,7 +53,7 @@ architecture Behavioral of Convolution is
 
 begin
 
- convolve : process ( clk, data_a_in, clk , paddone_in )
+ convolve : process ( clk, reset_in, data_a_in, paddone_in )
      constant col_row_c      : INTEGER := 27;  --number of rows/columns
      variable cur_opixel_v   : INTEGER := 0;   --pixel address where the convolved value is going to be placed.
      variable cur_ipixel_v   : INTEGER := col_row_c+1; -- corresponding pixel address in the padded image ram.

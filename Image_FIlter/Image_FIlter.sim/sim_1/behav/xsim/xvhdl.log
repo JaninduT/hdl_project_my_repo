@@ -1,6 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/control_unit.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'control_unit'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/padding_unit.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'padding_unit'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/ram_input_mux.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'ram_input_mux'
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sim_1/new/image_filter_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'image_filter_test'

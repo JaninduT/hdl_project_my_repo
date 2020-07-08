@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1594184863">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1594187990">
   <File Type="BITSTR-BMM" Name="image_filter_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="image_filter_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="image_filter_timing_summary_init.rpt"/>

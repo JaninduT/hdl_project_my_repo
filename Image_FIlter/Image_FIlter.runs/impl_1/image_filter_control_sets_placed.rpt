@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date         : Wed Jul  8 10:38:26 2020
+| Date         : Wed Jul  8 11:30:28 2020
 | Host         : DESKTOP-V5A9UPS running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file image_filter_control_sets_placed.rpt
 | Design       : image_filter
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    22 |
-|    Minimum number of control sets                        |    22 |
+| Total control sets                                       |     5 |
+|    Minimum number of control sets                        |     5 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    52 |
+| Unused register locations in slices containing registers |    11 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    22 |
-| >= 0 to < 4        |     2 |
-| >= 4 to < 6        |     0 |
+| Total control sets |     5 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     0 |
-| >= 8 to < 10       |     5 |
-| >= 10 to < 12      |     3 |
-| >= 12 to < 14      |     1 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |    11 |
+| >= 16              |     3 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,11 +58,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               3 |            3 |
-| No           | No                    | Yes                    |               8 |            4 |
+| No           | No                    | No                     |               0 |            0 |
+| No           | No                    | Yes                    |               4 |            2 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              82 |           40 |
-| Yes          | No                    | Yes                    |             343 |           89 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |             129 |           33 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -70,31 +70,14 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+--------------------------------------------------+-------------------------+------------------+----------------+
-|  Clock Signal  |                   Enable Signal                  |     Set/Reset Signal    | Slice Load Count | Bel Load Count |
-+----------------+--------------------------------------------------+-------------------------+------------------+----------------+
-|  clk_IBUF_BUFG | control_unit_1_cu/finished_op_out_i_1_n_0        | padding_unit_1_pu/AR[0] |                1 |              1 |
-|  clk_IBUF_BUFG |                                                  |                         |                3 |              3 |
-|  clk_IBUF_BUFG |                                                  | padding_unit_1_pu/AR[0] |                4 |              8 |
-|  clk_IBUF_BUFG | padding_unit_1_pu/top_right[7]_i_1_n_0           | padding_unit_1_pu/AR[0] |                2 |              8 |
-|  clk_IBUF_BUFG | padding_unit_1_pu/top_left[7]_i_1_n_0            | padding_unit_1_pu/AR[0] |                2 |              8 |
-|  clk_IBUF_BUFG | padding_unit_1_pu/bottom_left_0                  | padding_unit_1_pu/AR[0] |                1 |              8 |
-|  clk_IBUF_BUFG | padding_unit_1_pu/bottom_right_1                 | padding_unit_1_pu/AR[0] |                1 |              8 |
-|  clk_IBUF_BUFG | convolution_unit_1_convu/cur_opixel_v[0]_i_1_n_0 | padding_unit_1_pu/AR[0] |                3 |             10 |
-|  clk_IBUF_BUFG | convolution_unit_1_convu/read_addr_out0          |                         |                8 |             10 |
-|  clk_IBUF_BUFG | padding_unit_1_pu/ioi_addra_out0                 |                         |                3 |             10 |
-|  clk_IBUF_BUFG | convolution_unit_1_convu/total_v[11]_i_1_n_0     | padding_unit_1_pu/AR[0] |                5 |             12 |
-|  clk_IBUF_BUFG | padding_unit_1_pu/padi_addra_out0                |                         |                7 |             18 |
-|  clk_IBUF_BUFG | padding_unit_1_pu/padi_addrb_out0                |                         |               10 |             18 |
-|  clk_IBUF_BUFG | convolution_unit_1_convu/write_addr_out0         |                         |               12 |             26 |
-|  clk_IBUF_BUFG | convolution_unit_1_convu/ctrl_tick_v[0]_i_1_n_0  | padding_unit_1_pu/AR[0] |                8 |             32 |
-|  clk_IBUF_BUFG | convolution_unit_1_convu/cur_pix_kern_v          | padding_unit_1_pu/AR[0] |                8 |             32 |
-|  clk_IBUF_BUFG | padding_unit_1_pu/row                            | padding_unit_1_pu/AR[0] |                8 |             32 |
-|  clk_IBUF_BUFG | padding_unit_1_pu/wait_after_write_2             | padding_unit_1_pu/AR[0] |               10 |             32 |
-|  clk_IBUF_BUFG | padding_unit_1_pu/wait_to_read_3                 | padding_unit_1_pu/AR[0] |                8 |             32 |
-|  clk_IBUF_BUFG | padding_unit_1_pu/column                         | padding_unit_1_pu/AR[0] |                8 |             32 |
-|  clk_IBUF_BUFG | padding_unit_1_pu/corner[0]_i_1_n_0              | padding_unit_1_pu/AR[0] |                8 |             32 |
-|  clk_IBUF_BUFG | convolution_unit_1_convu/cur_col_v[0]_i_1_n_0    | padding_unit_1_pu/AR[0] |               16 |             64 |
-+----------------+--------------------------------------------------+-------------------------+------------------+----------------+
++----------------+-------------------------------------------------+-------------------------+------------------+----------------+
+|  Clock Signal  |                  Enable Signal                  |     Set/Reset Signal    | Slice Load Count | Bel Load Count |
++----------------+-------------------------------------------------+-------------------------+------------------+----------------+
+|  clk_IBUF_BUFG | control_unit_1_cu/finished_op_out_i_1_n_0       | padding_unit_1_pu/AR[0] |                1 |              1 |
+|  clk_IBUF_BUFG |                                                 | padding_unit_1_pu/AR[0] |                2 |              4 |
+|  clk_IBUF_BUFG | convolution_unit_1_convu/ctrl_tick_v[0]_i_1_n_0 | padding_unit_1_pu/AR[0] |                8 |             32 |
+|  clk_IBUF_BUFG | convolution_unit_1_convu/cur_pix_kern_v         | padding_unit_1_pu/AR[0] |                8 |             32 |
+|  clk_IBUF_BUFG | convolution_unit_1_convu/cur_col_v[0]_i_1_n_0   | padding_unit_1_pu/AR[0] |               16 |             64 |
++----------------+-------------------------------------------------+-------------------------+------------------+----------------+
 
 

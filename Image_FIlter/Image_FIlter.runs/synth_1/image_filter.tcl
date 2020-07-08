@@ -17,35 +17,39 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param chipscope.maxJobs 3
+set_param synth.incrementalSynthesisCache E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/.Xil/Vivado-7044-DESKTOP-V5A9UPS/incrSyn
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.cache/wt [current_project]
-set_property parent.project_path C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.xpr [current_project]
+set_property webtalk.parent_dir E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.cache/wt [current_project]
+set_property parent.project_path E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
-set_property ip_output_repo c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.cache/ip [current_project]
+set_property ip_output_repo e:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/imports/Image_FIlter/image_ram_init_data.coe
-add_files C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/imgsave.coe
-add_files C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_data.coe
+add_files E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/imports/Image_FIlter/image_ram_init_data.coe
+add_files E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/imgsave.coe
+add_files E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_data.coe
 read_vhdl -library xil_defaultlib {
-  C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd
-  C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/control_unit.vhd
-  C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/padding_unit.vhd
-  C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/ram_input_mux.vhd
-  C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd
+  E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd
+  E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/new/control_unit.vhd
+  E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/new/padding_unit.vhd
+  E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/new/ram_input_mux.vhd
+  E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd
 }
-read_ip -quiet C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci
-set_property used_in_implementation false [get_files -all c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram_ooc.xdc]
+read_ip -quiet E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci
+set_property used_in_implementation false [get_files -all e:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram_ooc.xdc]
 
-read_ip -quiet C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/input_output_ram.xci
-set_property used_in_implementation false [get_files -all c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/input_output_ram_ooc.xdc]
+read_ip -quiet E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/input_output_ram.xci
+set_property used_in_implementation false [get_files -all e:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/input_output_ram_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

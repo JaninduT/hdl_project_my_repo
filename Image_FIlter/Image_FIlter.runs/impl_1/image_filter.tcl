@@ -60,24 +60,27 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 3
+  set_param synth.incrementalSynthesisCache E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/.Xil/Vivado-7044-DESKTOP-V5A9UPS/incrSyn
   create_project -in_memory -part xc7a35tcpg236-1
   set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.cache/wt [current_project]
-  set_property parent.project_path C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.xpr [current_project]
-  set_property ip_output_repo C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.cache/ip [current_project]
+  set_property webtalk.parent_dir E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.cache/wt [current_project]
+  set_property parent.project_path E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.xpr [current_project]
+  set_property ip_output_repo E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_MEMORY [current_project]
-  add_files -quiet C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.runs/synth_1/image_filter.dcp
-  read_ip -quiet C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci
-  read_ip -quiet C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/input_output_ram.xci
+  add_files -quiet E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.runs/synth_1/image_filter.dcp
+  read_ip -quiet E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci
+  read_ip -quiet E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/input_output_ram.xci
   link_design -top image_filter -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
 } RESULT]

@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.runs/synth_1'
+HD_PWD='E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

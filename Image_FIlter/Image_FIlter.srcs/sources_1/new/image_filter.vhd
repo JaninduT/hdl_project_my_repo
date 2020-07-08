@@ -35,9 +35,9 @@ entity image_filter is
     Port ( clk : in STD_LOGIC;
            rst_n : in STD_LOGIC;
            start_in : in STD_LOGIC;
-           wea_to_ioi : inout STD_LOGIC_VECTOR(0 DOWNTO 0);
-           dina_to_ioi : inout STD_LOGIC_VECTOR(7 DOWNTO 0);
-           addra_to_ioi : inout STD_LOGIC_VECTOR (9 DOWNTO 0);
+           --wea_to_ioi : inout STD_LOGIC_VECTOR(0 DOWNTO 0);
+           --dina_to_ioi : inout STD_LOGIC_VECTOR(7 DOWNTO 0);
+           --addra_to_ioi : inout STD_LOGIC_VECTOR (9 DOWNTO 0);
            finished_out : out STD_LOGIC );
 end image_filter;
 
@@ -71,16 +71,13 @@ component padding_unit is
            finished_out : out STD_LOGIC;
            ioi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
            ioi_addra_out : out STD_LOGIC_VECTOR(9 DOWNTO 0);
-           --ioi_dina : out STD_LOGIC_VECTOR(7 DOWNTO 0);
            ioi_douta_in : in STD_LOGIC_VECTOR(7 DOWNTO 0);
            padi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
            padi_addra_out : out STD_LOGIC_VECTOR(9 DOWNTO 0);
            padi_dina_out : out STD_LOGIC_VECTOR(7 DOWNTO 0);
-           --padi_douta : in STD_LOGIC_VECTOR(7 DOWNTO 0);
            padi_web_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
            padi_addrb_out : out STD_LOGIC_VECTOR(9 DOWNTO 0);
            padi_dinb_out : out STD_LOGIC_VECTOR(7 DOWNTO 0)
-           --padi_doutb : in STD_LOGIC_VECTOR(7 DOWNTO 0)
            );
 end component;
 
@@ -138,9 +135,9 @@ signal finished_pu_to_cu : STD_LOGIC;
 signal finished_convu_to_cu : STD_LOGIC;
 signal enable_mux_padding_cu_to_mux : STD_LOGIC;
 signal enable_mux_convolve_cu_to_mux : STD_LOGIC;
---signal wea_to_ioi : STD_LOGIC_VECTOR (0 DOWNTO 0);
---signal addra_to_ioi : STD_LOGIC_VECTOR (9 DOWNTO 0);
---signal dina_to_ioi : STD_LOGIC_VECTOR (7 DOWNTO 0);
+signal wea_to_ioi : STD_LOGIC_VECTOR (0 DOWNTO 0);
+signal addra_to_ioi : STD_LOGIC_VECTOR (9 DOWNTO 0);
+signal dina_to_ioi : STD_LOGIC_VECTOR (7 DOWNTO 0);
 signal douta_from_ioi : STD_LOGIC_VECTOR (7 DOWNTO 0);
 signal wea_to_padi : STD_LOGIC_VECTOR (0 DOWNTO 0);
 signal addra_to_padi : STD_LOGIC_VECTOR (9 DOWNTO 0);
@@ -187,17 +184,13 @@ padding_unit_1_pu : padding_unit
               finished_out => finished_pu_to_cu,
               ioi_wea_out => ioi_wea_pu_to_mux,
               ioi_addra_out => ioi_addra_pu_to_mux,
-              --ioi_dina => ioi_dina,
               ioi_douta_in => douta_from_ioi,
               padi_wea_out => padi_wea_pu_to_mux,
               padi_addra_out => padi_addra_pu_to_mux,
               padi_dina_out => dina_to_padi,
-              --padi_douta => padi_douta,
               padi_web_out => web_to_padi,
               padi_addrb_out => addrb_to_padi,
-              padi_dinb_out => dinb_to_padi
-              --padi_doutb => padi_doutb
-              );
+              padi_dinb_out => dinb_to_padi);
 
 convolution_unit_1_convu : Convolution
     port map(data_a_in => douta_from_padi,

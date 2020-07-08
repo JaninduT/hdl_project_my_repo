@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Wed Jul  8 10:38:50 2020
+| Date             : Wed Jul  8 11:30:50 2020
 | Host             : DESKTOP-V5A9UPS running 64-bit major release  (build 9200)
 | Command          : report_power -file image_filter_power_routed.rpt -pb image_filter_power_summary_routed.pb -rpx image_filter_power_routed.rpx
 | Design           : image_filter
@@ -29,20 +29,20 @@ Table of Contents
 1. Summary
 ----------
 
-+--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 17.022 (Junction temp exceeded!) |
-| Design Power Budget (W)  | Unspecified*                     |
-| Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 16.692                           |
-| Device Static (W)        | 0.330                            |
-| Effective TJA (C/W)      | 5.0                              |
-| Max Ambient (C)          | 0.0                              |
-| Junction Temperature (C) | 110.1                            |
-| Confidence Level         | Low                              |
-| Setting File             | ---                              |
-| Simulation Activity File | ---                              |
-| Design Nets Matched      | NA                               |
-+--------------------------+----------------------------------+
++--------------------------+--------------+
+| Total On-Chip Power (W)  | 0.634        |
+| Design Power Budget (W)  | Unspecified* |
+| Power Budget Margin (W)  | NA           |
+| Dynamic (W)              | 0.562        |
+| Device Static (W)        | 0.071        |
+| Effective TJA (C/W)      | 5.0          |
+| Max Ambient (C)          | 81.8         |
+| Junction Temperature (C) | 28.2         |
+| Confidence Level         | Low          |
+| Setting File             | ---          |
+| Simulation Activity File | ---          |
+| Design Nets Matched      | NA           |
++--------------------------+--------------+
 * Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
 
 
@@ -52,18 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     2.107 |     1424 |       --- |             --- |
-|   LUT as Logic |     1.798 |      706 |     20800 |            3.39 |
-|   CARRY4       |     0.257 |      128 |      8150 |            1.57 |
-|   Register     |     0.046 |      436 |     41600 |            1.05 |
+| Slice Logic    |     0.140 |      335 |       --- |             --- |
+|   LUT as Logic |     0.073 |      140 |     20800 |            0.67 |
+|   CARRY4       |     0.055 |       48 |      8150 |            0.59 |
+|   Register     |     0.006 |      133 |     41600 |            0.32 |
 |   BUFG         |     0.006 |        1 |        32 |            3.13 |
-|   F7/F8 Muxes  |    <0.001 |        5 |     32600 |            0.02 |
-|   Others       |     0.000 |       10 |       --- |             --- |
-| Signals        |     1.955 |     1217 |       --- |             --- |
-| Block RAM      |     0.160 |        1 |        50 |            2.00 |
-| I/O            |    12.469 |       23 |       106 |           21.70 |
-| Static Power   |     0.330 |          |           |                 |
-| Total          |    17.022 |          |           |                 |
+|   Others       |     0.000 |        3 |       --- |             --- |
+| Signals        |     0.097 |      318 |       --- |             --- |
+| I/O            |     0.325 |        4 |       106 |            3.77 |
+| Static Power   |     0.071 |          |           |                 |
+| Total          |     0.634 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,16 +71,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     4.437 |       4.219 |      0.218 |
-| Vccaux    |       1.800 |     1.058 |       1.020 |      0.038 |
+| Vccint    |       1.000 |     0.256 |       0.245 |      0.011 |
+| Vccaux    |       1.800 |     0.039 |       0.026 |      0.013 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
-| Vcco18    |       1.800 |     5.904 |       5.903 |      0.001 |
+| Vcco18    |       1.800 |     0.151 |       0.150 |      0.001 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.018 |       0.012 |      0.006 |
+| Vccbram   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -140,16 +138,9 @@ Table of Contents
 +----------------------------+-----------+
 | Name                       | Power (W) |
 +----------------------------+-----------+
-| image_filter               |    16.692 |
-|   control_unit_1_cu        |     0.309 |
-|   convolution_unit_1_convu |     1.592 |
-|   input_output_ram_1_ioi   |     0.188 |
-|     U0                     |     0.188 |
-|       inst_blk_mem_gen     |     0.188 |
-|   padded_image_ram_1_padi  |     0.154 |
-|     U0                     |     0.154 |
-|       inst_blk_mem_gen     |     0.154 |
-|   padding_unit_1_pu        |     1.943 |
+| image_filter               |     0.562 |
+|   control_unit_1_cu        |     0.065 |
+|   convolution_unit_1_convu |     0.153 |
 +----------------------------+-----------+
 
 

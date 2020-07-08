@@ -1,0 +1,627 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Fri Jun 26 12:14:58 2020
+# Process ID: 23832
+# Current directory: C:/Users/User/AppData/Roaming/Xilinx/Vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21840
+# Log file: C:/Users/User/AppData/Roaming/Xilinx/Vivado/vivado.log
+# Journal file: C:/Users/User/AppData/Roaming/Xilinx/Vivado\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Sem7/HDL/Project/Image_FIlter/Image_FIlter/Image_FIlter.xpr
+update_compile_order -fileset sources_1
+close_project
+open_project D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.xpr
+update_compile_order -fileset sources_1
+set_property -dict [list CONFIG.Write_Depth_A {25}] [get_ips padded_image_ram]
+set_property -dict [list CONFIG.Load_Init_File {true} CONFIG.Coe_File {d:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/imgsave.coe}] [get_ips padded_image_ram]
+generate_target all [get_files  D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci]
+export_ip_user_files -of_objects [get_files D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci] -directory D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.ip_user_files/sim_scripts -ip_user_files_dir D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.ip_user_files -ipstatic_source_dir D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.cache/compile_simlib/modelsim} {questa=D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.cache/compile_simlib/questa} {riviera=D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.cache/compile_simlib/riviera} {activehdl=D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_convolve [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+close_sim
+launch_simulation
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top convolve_with_padded_ram_test [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 64
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 64
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 64
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 65
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 66
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 67
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 68
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 64
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 64
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 64
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 65
+step
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 65
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 65
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 65
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 66
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 67
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 68
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 65
+relaunch_sim
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_convolve [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+source tb_convolve.tcl
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+close_sim
+launch_simulation
+source tb_convolve.tcl
+close_sim
+launch_simulation
+source tb_convolve.tcl
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+relaunch_sim
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+close_sim
+launch_simulation
+source tb_convolve.tcl
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 62
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 62
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 62
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 62
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 62
+step
+step
+step
+step
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 65
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 65
+step
+step
+step
+step
+step
+step
+step
+step
+step
+remove_bps -all
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 62
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 62
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 62
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 63
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 63
+relaunch_sim
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+relaunch_sim
+close_sim
+launch_simulation
+source tb_convolve.tcl
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+close_sim
+launch_simulation
+source tb_convolve.tcl
+step
+step
+run 10000 ns
+remove_bps -all
+run 10000 ns
+relaunch_sim
+relaunch_sim
+close_sim
+launch_simulation
+source tb_convolve.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+close_sim
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top convolve_with_padded_ram_test [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+relaunch_sim
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+relaunch_sim
+archive_project D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter_Convolution_Tested.xpr.zip -temp_dir C:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-23832-DESKTOP-MV18312 -force -include_local_ip_cache
+archive_project D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_ConvolutionTest.xpr.zip -temp_dir C:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-23832-DESKTOP-MV18312 -force -include_local_ip_cache
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 118
+remove_bps -file {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} -line 118
+add_bp {D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd} 118
+step
+step
+step
+step
+step
+remove_bps -all
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+step
+relaunch_sim
+relaunch_sim
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sim_1/new/tb_MemWrite.vhd w ]
+add_files -fileset sim_1 D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.srcs/sim_1/new/tb_MemWrite.vhd
+update_compile_order -fileset sim_1
+close_sim
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_MemWrite [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+launch_simulation
+launch_simulation
+launch_simulation
+close_project
+open_project D:/Sem7/HDL/Project/Image_FIlter/Image_FIlter/Image_FIlter.xpr
+update_compile_order -fileset sources_1
+close_project
+open_project D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter/Image_FIlter.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top memwrite_test [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+source memwrite_test.tcl
+archive_project D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_TestFinal.xpr.zip -temp_dir C:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-23832-DESKTOP-MV18312 -force -include_local_ip_cache
+relaunch_sim
+close_sim
+launch_simulation
+source memwrite_test.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top convolve_with_padded_ram_test [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+close_sim
+launch_simulation
+source convolve_with_padded_ram_test.tcl
+relaunch_sim
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top memwrite_test [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+close_sim
+launch_simulation
+source memwrite_test.tcl
+relaunch_sim
+relaunch_sim
+archive_project D:/Sem7/HDL/Project/Image_FIlter_Convo_tb_added.xpr/Image_FIlter_MemWriteTB.xpr.zip -temp_dir C:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-23832-DESKTOP-MV18312 -force -include_local_ip_cache
+close_sim
+close_project
+open_project D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_all_op_ok/Image_FIlter_all_op_ok/Image_FIlter/Image_FIlter.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source memwrite_test.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+set_property -dict [list CONFIG.Coe_File {d:/Sem7/HDL/Project/ImageFilter/Image_FIlter_all_op_ok/Image_FIlter_all_op_ok/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_data.coe}] [get_ips padded_image_ram]
+relaunch_sim
+close_sim
+set_property -dict [list CONFIG.Coe_File {d:/Sem7/HDL/Project/ImageFilter/Image_FIlter_all_op_ok/Image_FIlter_all_op_ok/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_data.coe}] [get_ips padded_image_ram]
+generate_target all [get_files  D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_all_op_ok/Image_FIlter_all_op_ok/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci]
+export_ip_user_files -of_objects [get_files D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_all_op_ok/Image_FIlter_all_op_ok/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_all_op_ok/Image_FIlter_all_op_ok/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci] -directory D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_all_op_ok/Image_FIlter_all_op_ok/Image_FIlter/Image_FIlter.ip_user_files/sim_scripts -ip_user_files_dir D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_all_op_ok/Image_FIlter_all_op_ok/Image_FIlter/Image_FIlter.ip_user_files -ipstatic_source_dir D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_all_op_ok/Image_FIlter_all_op_ok/Image_FIlter/Image_FIlter.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_all_op_ok/Image_FIlter_all_op_ok/Image_FIlter/Image_FIlter.cache/compile_simlib/modelsim} {questa=D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_all_op_ok/Image_FIlter_all_op_ok/Image_FIlter/Image_FIlter.cache/compile_simlib/questa} {riviera=D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_all_op_ok/Image_FIlter_all_op_ok/Image_FIlter/Image_FIlter.cache/compile_simlib/riviera} {activehdl=D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_all_op_ok/Image_FIlter_all_op_ok/Image_FIlter/Image_FIlter.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+source memwrite_test.tcl
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+close_sim
+close_project
+open_project D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_multiplexer_added/Image_FIlter_multiplexer_added/Image_FIlter/Image_FIlter.xpr
+update_compile_order -fileset sources_1
+close_project
+open_project D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_multiplexer_added_complete/Image_FIlter_multiplexer_added_complete/Image_FIlter/Image_FIlter.xpr
+update_compile_order -fileset sources_1
+archive_project D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_Rules_Comments.xpr.zip -temp_dir C:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-23832-DESKTOP-MV18312 -force -include_local_ip_cache
+archive_project D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_reset.xpr.zip -temp_dir C:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-23832-DESKTOP-MV18312 -force -include_local_ip_cache

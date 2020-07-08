@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Image_FIlter.srcs/sources_1/new/Convolve.vhd" \
+"../../../../Image_FIlter.srcs/sources_1/new/MemWrite.vhd" \
+"../../../../Image_FIlter.srcs/sim_1/new/tb_MemWrite.vhd" \
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Wed Jul  8 10:35:13 2020
+# Process ID: 16312
+# Current directory: C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.runs/synth_1
+# Command line: vivado.exe -log image_filter.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source image_filter.tcl
+# Log file: C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.runs/synth_1/image_filter.vds
+# Journal file: C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source image_filter.tcl -notrace

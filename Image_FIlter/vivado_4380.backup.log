@@ -1,0 +1,1181 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue Jul  7 09:21:16 2020
+# Process ID: 4380
+# Current directory: C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15236 C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.xpr
+# Log file: C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/vivado.log
+# Journal file: C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-23832-DESKTOP-MV18312/PrjAr/_X_' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2019.2/data/ip'.
+open_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 884.559 ; gain = 256.449
+update_compile_order -fileset sources_1
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a35tcpg236-1
+Top: image_filter
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1414.664 ; gain = 231.781
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'image_filter' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:41]
+INFO: [Synth 8-3491] module 'input_output_ram' declared at 'c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/synth/input_output_ram.vhd:59' bound to instance 'input_output_ram_1_ioi' of component 'input_output_ram' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:161]
+INFO: [Synth 8-638] synthesizing module 'input_output_ram' [c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/synth/input_output_ram.vhd:69]
+	Parameter C_FAMILY bound to: artix7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 0 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: input_output_ram.mif - type: string 
+	Parameter C_INIT_FILE bound to: input_output_ram.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: NO_CHANGE - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 625 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 625 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 625 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 625 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 1 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.2049 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_4' declared at 'c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_4' [c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/synth/input_output_ram.vhd:234]
+INFO: [Synth 8-256] done synthesizing module 'input_output_ram' (9#1) [c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/synth/input_output_ram.vhd:69]
+INFO: [Synth 8-3491] module 'padded_image_ram' declared at 'c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/synth/padded_image_ram.vhd:59' bound to instance 'padded_image_ram_1_padi' of component 'padded_image_ram' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:168]
+INFO: [Synth 8-638] synthesizing module 'padded_image_ram' [c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/synth/padded_image_ram.vhd:74]
+	Parameter C_FAMILY bound to: artix7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 2 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: padded_image_ram.mif - type: string 
+	Parameter C_INIT_FILE bound to: padded_image_ram.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: NO_CHANGE - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 729 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 729 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: NO_CHANGE - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 729 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 729 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 1 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 1 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 1 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.4098 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_4' declared at 'c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_4' [c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/synth/padded_image_ram.vhd:245]
+INFO: [Synth 8-256] done synthesizing module 'padded_image_ram' (10#1) [c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/synth/padded_image_ram.vhd:74]
+INFO: [Synth 8-3491] module 'padding_unit' declared at 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/padding_unit.vhd:34' bound to instance 'padding_unit_1_pu' of component 'padding_unit' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:180]
+INFO: [Synth 8-638] synthesizing module 'padding_unit' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/padding_unit.vhd:54]
+WARNING: [Synth 8-6014] Unused sequential element input_value_reg was removed.  [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/padding_unit.vhd:86]
+INFO: [Synth 8-256] done synthesizing module 'padding_unit' (11#1) [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/padding_unit.vhd:54]
+	Parameter addr_bit_size bound to: 9 - type: integer 
+	Parameter data_bit_size bound to: 7 - type: integer 
+	Parameter total_bit_size bound to: 11 - type: integer 
+INFO: [Synth 8-3491] module 'Convolution' declared at 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd:35' bound to instance 'convolution_unit_1_convu' of component 'Convolution' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:199]
+INFO: [Synth 8-638] synthesizing module 'Convolution' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd:52]
+	Parameter addr_bit_size bound to: 9 - type: integer 
+	Parameter data_bit_size bound to: 7 - type: integer 
+	Parameter total_bit_size bound to: 11 - type: integer 
+WARNING: [Synth 8-614] signal 'reset_in' is read in the process but is not in the sensitivity list [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd:56]
+INFO: [Synth 8-256] done synthesizing module 'Convolution' (12#1) [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd:52]
+INFO: [Synth 8-3491] module 'control_unit' declared at 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/control_unit.vhd:34' bound to instance 'control_unit_1_cu' of component 'control_unit' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:211]
+INFO: [Synth 8-638] synthesizing module 'control_unit' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/control_unit.vhd:47]
+INFO: [Synth 8-226] default block is never used [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/control_unit.vhd:63]
+INFO: [Synth 8-256] done synthesizing module 'control_unit' (13#1) [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/control_unit.vhd:47]
+INFO: [Synth 8-3491] module 'ram_input_mux' declared at 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/ram_input_mux.vhd:34' bound to instance 'ram_input_mux_1' of component 'ram_input_mux' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:223]
+INFO: [Synth 8-638] synthesizing module 'ram_input_mux' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/ram_input_mux.vhd:51]
+INFO: [Synth 8-256] done synthesizing module 'ram_input_mux' (14#1) [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/ram_input_mux.vhd:51]
+INFO: [Synth 8-256] done synthesizing module 'image_filter' (15#1) [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:41]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port SBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[9]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[8]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[7]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[6]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[5]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[4]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port SSRA
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port SSRB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port SLEEP
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port ECCPIPECE
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized0 has unconnected port RSTA[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized0 has unconnected port RSTB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized0 has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized0 has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port RSTA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ENA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port REGCEA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port RSTB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ENB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port REGCEB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AClk
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_ARESETN
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWID[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWID[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWID[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWID[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[31]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[30]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[29]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[28]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[27]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[26]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[25]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[24]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[23]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[22]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[21]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[20]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[19]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[18]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[17]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[16]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[15]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[14]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[13]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWSIZE[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWSIZE[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWSIZE[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWBURST[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWBURST[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWVALID
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WSTRB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WLAST
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WVALID
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_BREADY
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_ARID[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_ARID[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_ARID[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_ARID[0]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1790.410 ; gain = 607.527
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 1790.410 ; gain = 607.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 1790.410 ; gain = 607.527
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 1790.410 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1790.410 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:01:06 ; elapsed = 00:01:04 . Memory (MB): peak = 1790.410 ; gain = 607.527
+31 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:11 ; elapsed = 00:01:10 . Memory (MB): peak = 1790.410 ; gain = 852.445
+close_design
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Tue Jul  7 09:44:46 2020] Launched synth_1...
+Run output will be captured here: C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 8
+[Tue Jul  7 09:46:46 2020] Launched impl_1...
+Run output will be captured here: C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.runs/impl_1/runme.log
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sim_1/new/image_filter_test.vhd w ]
+add_files -fileset sim_1 C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sim_1/new/image_filter_test.vhd
+update_compile_order -fileset sim_1
+set_property top image_filter_test [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2019.2/data/xsim/xsim.ini' copied to run dir:'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'image_filter_test' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/input_output_ram.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/image_ram_init_data.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/padded_image_ram.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/padded_data.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/imgsave.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj image_filter_test_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/sim/padded_image_ram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module padded_image_ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/sim/input_output_ram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_output_ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+"xvhdl --incr --relax -prj image_filter_test_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Convolution'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/control_unit.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'control_unit'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'image_filter'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/padding_unit.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'padding_unit'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/ram_input_mux.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ram_input_mux'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sim_1/new/image_filter_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'image_filter_test'
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+"xelab -wto aaf18c36767f412c9f6fa4765755fdd2 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot image_filter_test_behav xil_defaultlib.image_filter_test xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto aaf18c36767f412c9f6fa4765755fdd2 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot image_filter_test_behav xil_defaultlib.image_filter_test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.input_output_ram
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_axi_regs_fwd_v8_4(C_DATA...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.padded_image_ram
+Compiling architecture behavioral of entity xil_defaultlib.padding_unit [padding_unit_default]
+Compiling architecture behavioral of entity xil_defaultlib.Convolution [convolution_default]
+Compiling architecture behavioral of entity xil_defaultlib.control_unit [control_unit_default]
+Compiling architecture behavioral of entity xil_defaultlib.ram_input_mux [ram_input_mux_default]
+Compiling architecture behavioral of entity xil_defaultlib.image_filter [image_filter_default]
+Compiling architecture behavioral of entity xil_defaultlib.image_filter_test
+Built simulation snapshot image_filter_test_behav
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/xsim.dir/image_filter_test_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Jul  7 10:05:28 2020...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 1960.676 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "image_filter_test_behav -key {Behavioral:sim_1:Functional:image_filter_test} -tclbatch {image_filter_test.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source image_filter_test.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 100000ns
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module image_filter_test.uut1.input_output_ram_1_ioi.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module image_filter_test.uut1.padded_image_ram_1_padi.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'image_filter_test_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 100000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:16 . Memory (MB): peak = 1960.676 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property -name {xsim.simulate.runtime} -value {1000000ns} -objects [get_filesets sim_1]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\control_unit.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sim_1\new\image_filter_test.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\image_filter.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\Convolve.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\padding_unit.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\control_unit.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sim_1\new\image_filter_test.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\image_filter.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\Convolve.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\padding_unit.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\control_unit.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sim_1\new\image_filter_test.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\image_filter.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\Convolve.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\padding_unit.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\control_unit.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sim_1\new\image_filter_test.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\image_filter.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\Convolve.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\User\Downloads\Image_FIlter_reset.xpr\Image_FIlter\Image_FIlter.srcs\sources_1\new\padding_unit.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2019.2/data/xsim/xsim.ini' copied to run dir:'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'image_filter_test' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/input_output_ram.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/image_ram_init_data.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/padded_image_ram.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/padded_data.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/imgsave.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj image_filter_test_vlog.prj"
+"xvhdl --incr --relax -prj image_filter_test_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+"xelab -wto aaf18c36767f412c9f6fa4765755fdd2 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot image_filter_test_behav xil_defaultlib.image_filter_test xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto aaf18c36767f412c9f6fa4765755fdd2 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot image_filter_test_behav xil_defaultlib.image_filter_test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "image_filter_test_behav -key {Behavioral:sim_1:Functional:image_filter_test} -tclbatch {image_filter_test.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source image_filter_test.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000000ns
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module image_filter_test.uut1.input_output_ram_1_ioi.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module image_filter_test.uut1.padded_image_ram_1_padi.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+xsim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:11 . Memory (MB): peak = 1960.676 ; gain = 0.000
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'image_filter_test_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:16 . Memory (MB): peak = 1960.676 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a35tcpg236-1
+Top: image_filter
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1960.676 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'image_filter' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:43]
+INFO: [Synth 8-3491] module 'input_output_ram' declared at 'c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/synth/input_output_ram.vhd:59' bound to instance 'input_output_ram_1_ioi' of component 'input_output_ram' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:163]
+INFO: [Synth 8-638] synthesizing module 'input_output_ram' [c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/synth/input_output_ram.vhd:69]
+	Parameter C_FAMILY bound to: artix7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 0 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: input_output_ram.mif - type: string 
+	Parameter C_INIT_FILE bound to: input_output_ram.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: NO_CHANGE - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 625 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 625 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 625 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 625 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 1 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.2049 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_4' declared at 'c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_4' [c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/synth/input_output_ram.vhd:234]
+INFO: [Synth 8-256] done synthesizing module 'input_output_ram' (9#1) [c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/synth/input_output_ram.vhd:69]
+INFO: [Synth 8-3491] module 'padded_image_ram' declared at 'c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/synth/padded_image_ram.vhd:59' bound to instance 'padded_image_ram_1_padi' of component 'padded_image_ram' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:170]
+INFO: [Synth 8-638] synthesizing module 'padded_image_ram' [c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/synth/padded_image_ram.vhd:74]
+	Parameter C_FAMILY bound to: artix7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 2 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: padded_image_ram.mif - type: string 
+	Parameter C_INIT_FILE bound to: padded_image_ram.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: NO_CHANGE - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 729 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 729 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: NO_CHANGE - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 8 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 729 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 729 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 1 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 1 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 1 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.4098 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_4' declared at 'c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_4' [c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/synth/padded_image_ram.vhd:245]
+INFO: [Synth 8-256] done synthesizing module 'padded_image_ram' (10#1) [c:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/synth/padded_image_ram.vhd:74]
+INFO: [Synth 8-3491] module 'padding_unit' declared at 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/padding_unit.vhd:34' bound to instance 'padding_unit_1_pu' of component 'padding_unit' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:182]
+INFO: [Synth 8-638] synthesizing module 'padding_unit' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/padding_unit.vhd:54]
+WARNING: [Synth 8-6014] Unused sequential element input_value_reg was removed.  [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/padding_unit.vhd:86]
+INFO: [Synth 8-256] done synthesizing module 'padding_unit' (11#1) [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/padding_unit.vhd:54]
+	Parameter addr_bit_size bound to: 9 - type: integer 
+	Parameter data_bit_size bound to: 7 - type: integer 
+	Parameter total_bit_size bound to: 11 - type: integer 
+INFO: [Synth 8-3491] module 'Convolution' declared at 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd:35' bound to instance 'convolution_unit_1_convu' of component 'Convolution' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:201]
+INFO: [Synth 8-638] synthesizing module 'Convolution' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd:52]
+	Parameter addr_bit_size bound to: 9 - type: integer 
+	Parameter data_bit_size bound to: 7 - type: integer 
+	Parameter total_bit_size bound to: 11 - type: integer 
+WARNING: [Synth 8-614] signal 'reset_in' is read in the process but is not in the sensitivity list [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd:56]
+INFO: [Synth 8-256] done synthesizing module 'Convolution' (12#1) [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/Convolve.vhd:52]
+INFO: [Synth 8-3491] module 'control_unit' declared at 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/control_unit.vhd:34' bound to instance 'control_unit_1_cu' of component 'control_unit' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:213]
+INFO: [Synth 8-638] synthesizing module 'control_unit' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/control_unit.vhd:47]
+INFO: [Synth 8-226] default block is never used [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/control_unit.vhd:63]
+INFO: [Synth 8-256] done synthesizing module 'control_unit' (13#1) [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/control_unit.vhd:47]
+INFO: [Synth 8-3491] module 'ram_input_mux' declared at 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/ram_input_mux.vhd:34' bound to instance 'ram_input_mux_1' of component 'ram_input_mux' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:225]
+INFO: [Synth 8-638] synthesizing module 'ram_input_mux' [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/ram_input_mux.vhd:51]
+INFO: [Synth 8-256] done synthesizing module 'ram_input_mux' (14#1) [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/ram_input_mux.vhd:51]
+INFO: [Synth 8-256] done synthesizing module 'image_filter' (15#1) [C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd:43]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port SBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[9]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[8]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[7]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[6]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[5]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[4]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port SSRA
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port SSRB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port SLEEP
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port ECCPIPECE
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized0 has unconnected port RSTA[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized0 has unconnected port RSTB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized0 has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr__parameterized0 has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port RSTA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ENA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port REGCEA
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port RSTB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port ENB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port REGCEB
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_input_block__parameterized0 has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AClk
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_ARESETN
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWID[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWID[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWID[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWID[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[31]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[30]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[29]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[28]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[27]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[26]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[25]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[24]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[23]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[22]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[21]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[20]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[19]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[18]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[17]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[16]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[15]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[14]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[13]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWADDR[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWLEN[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWSIZE[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWSIZE[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWSIZE[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWBURST[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWBURST[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_AWVALID
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WDATA[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WSTRB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WLAST
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_WVALID
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_BREADY
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_ARID[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_ARID[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_ARID[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_v8_4_4_synth__parameterized0 has unconnected port S_AXI_ARID[0]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 2046.848 ; gain = 86.172
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 2046.848 ; gain = 86.172
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:56 ; elapsed = 00:00:57 . Memory (MB): peak = 2046.848 ; gain = 86.172
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 2046.848 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2046.848 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:01:01 ; elapsed = 00:01:01 . Memory (MB): peak = 2046.848 ; gain = 86.172
+30 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:02 ; elapsed = 00:01:02 . Memory (MB): peak = 2046.848 ; gain = 86.172
+close_design
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2019.2/data/xsim/xsim.ini' copied to run dir:'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'image_filter_test' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/input_output_ram.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/image_ram_init_data.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/padded_image_ram.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/padded_data.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/imgsave.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj image_filter_test_vlog.prj"
+"xvhdl --incr --relax -prj image_filter_test_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'image_filter'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sim_1/new/image_filter_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'image_filter_test'
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+"xelab -wto aaf18c36767f412c9f6fa4765755fdd2 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot image_filter_test_behav xil_defaultlib.image_filter_test xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto aaf18c36767f412c9f6fa4765755fdd2 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot image_filter_test_behav xil_defaultlib.image_filter_test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.input_output_ram
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_axi_regs_fwd_v8_4(C_DATA...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.padded_image_ram
+Compiling architecture behavioral of entity xil_defaultlib.padding_unit [padding_unit_default]
+Compiling architecture behavioral of entity xil_defaultlib.Convolution [convolution_default]
+Compiling architecture behavioral of entity xil_defaultlib.control_unit [control_unit_default]
+Compiling architecture behavioral of entity xil_defaultlib.ram_input_mux [ram_input_mux_default]
+Compiling architecture behavioral of entity xil_defaultlib.image_filter [image_filter_default]
+Compiling architecture behavioral of entity xil_defaultlib.image_filter_test
+Built simulation snapshot image_filter_test_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "image_filter_test_behav -key {Behavioral:sim_1:Functional:image_filter_test} -tclbatch {image_filter_test.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source image_filter_test.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000000ns
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module image_filter_test.uut1.input_output_ram_1_ioi.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module image_filter_test.uut1.padded_image_ram_1_padi.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'image_filter_test_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:11 . Memory (MB): peak = 2046.848 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2019.2/data/xsim/xsim.ini' copied to run dir:'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'image_filter_test' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/input_output_ram.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/image_ram_init_data.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/padded_image_ram.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/padded_data.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/imgsave.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj image_filter_test_vlog.prj"
+"xvhdl --incr --relax -prj image_filter_test_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'image_filter'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sim_1/new/image_filter_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'image_filter_test'
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+"xelab -wto aaf18c36767f412c9f6fa4765755fdd2 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot image_filter_test_behav xil_defaultlib.image_filter_test xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto aaf18c36767f412c9f6fa4765755fdd2 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot image_filter_test_behav xil_defaultlib.image_filter_test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_textio
+Compiling package ieee.numeric_std
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.input_output_ram
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_axi_regs_fwd_v8_4(C_DATA...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.padded_image_ram
+Compiling architecture behavioral of entity xil_defaultlib.padding_unit [padding_unit_default]
+Compiling architecture behavioral of entity xil_defaultlib.Convolution [convolution_default]
+Compiling architecture behavioral of entity xil_defaultlib.control_unit [control_unit_default]
+Compiling architecture behavioral of entity xil_defaultlib.ram_input_mux [ram_input_mux_default]
+Compiling architecture behavioral of entity xil_defaultlib.image_filter [image_filter_default]
+Compiling architecture behavioral of entity xil_defaultlib.image_filter_test
+Built simulation snapshot image_filter_test_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "image_filter_test_behav -key {Behavioral:sim_1:Functional:image_filter_test} -tclbatch {image_filter_test.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source image_filter_test.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000000ns
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module image_filter_test.uut1.input_output_ram_1_ioi.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module image_filter_test.uut1.padded_image_ram_1_padi.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'image_filter_test_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 2046.848 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+set_property -dict [list CONFIG.Load_Init_File {false} CONFIG.Coe_File {no_coe_file_loaded} CONFIG.Fill_Remaining_Memory_Locations {true}] [get_ips padded_image_ram]
+WARNING: [IP_Flow 19-3374] An attempt to modify the value of disabled parameter 'Coe_File' from 'no_coe_file_loaded' to 'no_coe_file_loaded' has been ignored for IP 'padded_image_ram'
+generate_target all [get_files  C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'padded_image_ram'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'padded_image_ram'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'padded_image_ram'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'padded_image_ram'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'padded_image_ram'...
+export_ip_user_files -of_objects [get_files C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci] -directory C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.ip_user_files -ipstatic_source_dir C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.cache/compile_simlib/modelsim} {questa=C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.cache/compile_simlib/questa} {riviera=C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.cache/compile_simlib/riviera} {activehdl=C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'D:/Xilinx/Vivado/2019.2/data/xsim/xsim.ini' copied to run dir:'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'image_filter_test' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/input_output_ram.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/image_ram_init_data.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/imgsave.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim/padded_data.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj image_filter_test_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/sim/padded_image_ram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module padded_image_ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/sim/input_output_ram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_output_ram
+"xvhdl --incr --relax -prj image_filter_test_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+"xelab -wto aaf18c36767f412c9f6fa4765755fdd2 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot image_filter_test_behav xil_defaultlib.image_filter_test xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto aaf18c36767f412c9f6fa4765755fdd2 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_4 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot image_filter_test_behav xil_defaultlib.image_filter_test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_textio
+Compiling package ieee.numeric_std
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.input_output_ram
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_axi_regs_fwd_v8_4(C_DATA...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.padded_image_ram
+Compiling architecture behavioral of entity xil_defaultlib.padding_unit [padding_unit_default]
+Compiling architecture behavioral of entity xil_defaultlib.Convolution [convolution_default]
+Compiling architecture behavioral of entity xil_defaultlib.control_unit [control_unit_default]
+Compiling architecture behavioral of entity xil_defaultlib.ram_input_mux [ram_input_mux_default]
+Compiling architecture behavioral of entity xil_defaultlib.image_filter [image_filter_default]
+Compiling architecture behavioral of entity xil_defaultlib.image_filter_test
+Built simulation snapshot image_filter_test_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/User/Downloads/Image_FIlter_reset.xpr/Image_FIlter/Image_FIlter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "image_filter_test_behav -key {Behavioral:sim_1:Functional:image_filter_test} -tclbatch {image_filter_test.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source image_filter_test.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000000ns
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module image_filter_test.uut1.input_output_ram_1_ioi.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module image_filter_test.uut1.padded_image_ram_1_padi.inst.native_mem_module.blk_mem_gen_v8_4_4_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'image_filter_test_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:08 . Memory (MB): peak = 2122.254 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Jul  7 13:54:04 2020...

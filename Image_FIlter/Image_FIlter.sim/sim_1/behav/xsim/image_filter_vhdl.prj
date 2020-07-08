@@ -1,0 +1,10 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Image_FIlter.srcs/sources_1/new/Convolve.vhd" \
+"../../../../Image_FIlter.srcs/sources_1/new/control_unit.vhd" \
+"../../../../Image_FIlter.srcs/sources_1/new/padding_unit.vhd" \
+"../../../../Image_FIlter.srcs/sources_1/new/ram_input_mux.vhd" \
+"../../../../Image_FIlter.srcs/sources_1/new/image_filter.vhd" \
+
+# Do not sort compile order
+nosort

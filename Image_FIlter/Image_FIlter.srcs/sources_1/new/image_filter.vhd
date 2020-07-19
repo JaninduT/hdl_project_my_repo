@@ -65,38 +65,42 @@ component padded_image_ram is
 end component;
 
 component padding_unit is
+    Generic (addr_length : Integer := 10;
+             data_size : Integer := 8;
+             input_image_length : Integer := 25;
+             output_image_length : Integer := 27);
+             
     Port ( clk : in STD_LOGIC;
            rst_n : in STD_LOGIC;
            start_in : in STD_LOGIC;
            finished_out : out STD_LOGIC;
            ioi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
-           ioi_addra_out : out STD_LOGIC_VECTOR(9 DOWNTO 0);
-           ioi_douta_in : in STD_LOGIC_VECTOR(7 DOWNTO 0);
+           ioi_addra_out : out STD_LOGIC_VECTOR(addr_length-1 DOWNTO 0);
+           ioi_douta_in : in STD_LOGIC_VECTOR(data_size-1 DOWNTO 0);
            padi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
-           padi_addra_out : out STD_LOGIC_VECTOR(9 DOWNTO 0);
-           padi_dina_out : out STD_LOGIC_VECTOR(7 DOWNTO 0);
+           padi_addra_out : out STD_LOGIC_VECTOR(addr_length-1 DOWNTO 0);
+           padi_dina_out : out STD_LOGIC_VECTOR(data_size-1 DOWNTO 0);
            padi_web_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
-           padi_addrb_out : out STD_LOGIC_VECTOR(9 DOWNTO 0);
-           padi_dinb_out : out STD_LOGIC_VECTOR(7 DOWNTO 0)
+           padi_addrb_out : out STD_LOGIC_VECTOR(addr_length-1 DOWNTO 0);
+           padi_dinb_out : out STD_LOGIC_VECTOR(data_size-1 DOWNTO 0)
            );
 end component;
 
 component Convolution is
+    Generic (addr_bit_size : INTEGER := 9;
+             data_bit_size : INTEGER := 7; 
+             total_bit_size : INTEGER :=11);             
     
-    Generic (addr_bit_size : INTEGER := 9;   -- image has less than 1024 pixels.
-             data_bit_size : INTEGER := 7;   -- value range of a pixel (0-255) 
-             total_bit_size : INTEGER :=11); -- addition of 9 pixel values (0-2295)             
-    
-    Port ( data_a_in : in STD_LOGIC_VECTOR(data_bit_size DOWNTO 0);       -- data in bus from the padded image ram.
-           data_a_out : out STD_LOGIC_VECTOR(data_bit_size DOWNTO 0);     -- data out bus to final output image ram.
-           clk  : in STD_LOGIC;                                           -- clock
-           read_addr_out : out STD_LOGIC_VECTOR(addr_bit_size DOWNTO 0);  -- address bus to the padded image ram (to read a pixel value).  
-           write_addr_out : out STD_LOGIC_VECTOR(addr_bit_size DOWNTO 0); -- address bus to the final output image ram (to write a pixel value). 
-           write_en_a_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);             -- enable pin to the output ram (will be 1 when data_a_out is ready). 
-           write_en_p_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);             -- enable pin to the padded image ram.
-           paddone_in : in STD_LOGIC;                                     -- signal notifying the padding is done.
-           convdone_out : out STD_LOGIC;                             -- signal notifying the concolution is done.
-           reset_in :in STD_LOGIC );                                 -- reset signal  
+    Port ( data_a_in : in STD_LOGIC_VECTOR(data_bit_size DOWNTO 0);
+           data_a_out : out STD_LOGIC_VECTOR(data_bit_size DOWNTO 0);
+           clk  : in STD_LOGIC;
+           read_addr_out : out STD_LOGIC_VECTOR(addr_bit_size DOWNTO 0);  
+           write_addr_out : out STD_LOGIC_VECTOR(addr_bit_size DOWNTO 0); 
+           write_en_a_out : out STD_LOGIC_VECTOR(0 DOWNTO 0); 
+           write_en_p_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
+           paddone_in : in STD_LOGIC;
+           convdone_out : out STD_LOGIC;
+           reset_in :in STD_LOGIC );  
 end component;
 
 component control_unit is

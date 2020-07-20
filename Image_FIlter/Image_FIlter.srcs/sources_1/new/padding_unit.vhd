@@ -39,10 +39,10 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity padding_unit is
-    Generic (addr_length : Integer := 10; --size of the memory address(10bits)
-             data_size : Integer := 8; --size of the pixel data (8bits)
-             input_image_length : Integer := 25; --length of the input image
-             output_image_length : Integer := 27); --length of the output image(input_length+2)
+    Generic (addr_length_g : Integer := 10; --size of the memory address(10bits)
+             data_size_g : Integer := 8; --size of the pixel data (8bits)
+             input_image_length_g : Integer := 25; --length of the input image
+             output_image_length_g : Integer := 27); --length of the output image(input_length+2)
              
     Port ( clk : in STD_LOGIC;
            rst_n : in STD_LOGIC;
@@ -53,21 +53,21 @@ entity padding_unit is
            --write enable signal for input/output ram
            ioi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
            --address for input/output ram 
-           ioi_addra_out : out STD_LOGIC_VECTOR(addr_length-1 DOWNTO 0);
+           ioi_addra_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0);
            --data out bus from input/output ram
-           ioi_douta_in : in STD_LOGIC_VECTOR(data_size-1 DOWNTO 0);
+           ioi_douta_in : in STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0);
            --write enable signal for padding ram port a
            padi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
            --address for padding ram port a
-           padi_addra_out : out STD_LOGIC_VECTOR(addr_length-1 DOWNTO 0);
+           padi_addra_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0);
            --data in bus for padding ram port a
-           padi_dina_out : out STD_LOGIC_VECTOR(data_size-1 DOWNTO 0);
+           padi_dina_out : out STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0);
            --write enable signal for padding ram port b
            padi_web_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
            --address for padding ram port b
-           padi_addrb_out : out STD_LOGIC_VECTOR(addr_length-1 DOWNTO 0);
+           padi_addrb_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0);
            --data in bus for padding ram port b
-           padi_dinb_out : out STD_LOGIC_VECTOR(data_size-1 DOWNTO 0));
+           padi_dinb_out : out STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0));
 end padding_unit;
 
 architecture Behavioral of padding_unit is
@@ -94,19 +94,19 @@ begin
         --specify the need to write through the port b of padded ram.
         variable write_to_b : STD_LOGIC := '0';
         --specify base address of input/output ram.
-        variable ioi_base : unsigned (addr_length-1 downto 0):= "0000000000";
+        variable ioi_base : unsigned (addr_length_g -1 downto 0):= "0000000000";
         --specify base address of padding ram.
-        variable padi_base : unsigned (addr_length-1 downto 0) := "0000000000";
+        variable padi_base : unsigned (addr_length_g -1 downto 0) := "0000000000";
         --holds pixel value read from input/output ram.
-        variable input_value : STD_LOGIC_VECTOR (data_size-1 downto 0) := "00000000";
+        variable input_value : STD_LOGIC_VECTOR (data_size_g -1 downto 0) := "00000000";
         --holds top left corner pixel value.
-        variable top_left : STD_LOGIC_VECTOR (data_size-1 downto 0) := "00000000";
+        variable top_left : STD_LOGIC_VECTOR (data_size_g -1 downto 0) := "00000000";
         --holds top right corner pixel value.
-        variable top_right : STD_LOGIC_VECTOR (data_size-1 downto 0) := "00000000";
+        variable top_right : STD_LOGIC_VECTOR (data_size_g -1 downto 0) := "00000000";
         --holds bottom left corner pixel value.
-        variable bottom_left : STD_LOGIC_VECTOR (data_size-1 downto 0) := "00000000";
+        variable bottom_left : STD_LOGIC_VECTOR (data_size_g -1 downto 0) := "00000000";
         --holds bottom right corner pixel value.
-        variable bottom_right : STD_LOGIC_VECTOR (data_size-1 downto 0) := "00000000";
+        variable bottom_right : STD_LOGIC_VECTOR (data_size_g -1 downto 0) := "00000000";
         begin
             --active low reset. resets control and temporary data variables.
             if ( rst_n = '0' ) then
@@ -132,20 +132,20 @@ begin
                     ioi_wea_out <= "0";
                 elsif (started = '1') then
                     --traverse from row 0 to 24
-                    if (row /= input_image_length) then
+                    if (row /= input_image_length_g) then
                         --traverse from column 0 to 24
-                        if (column /= input_image_length) then
+                        if (column /= input_image_length_g) then
                             if (wait_to_read = read_wait) then
                                 --set the next memory location address to
                                 --input/output ram and start coutdown to read.
-                                ioi_addra_out <= STD_LOGIC_VECTOR(ioi_base + (row * input_image_length) + column);
+                                ioi_addra_out <= STD_LOGIC_VECTOR(ioi_base + (row * input_image_length_g) + column);
                                 wait_to_read := wait_to_read - 1;
                             elsif (wait_to_read = 0) then
                                 --read from input/output ram when the read countdown is 0.
                                 input_value := ioi_douta_in;
                                 ----wait_to_read := read_wait;
                                 --set next address and data to be written into padded ram.
-                                padi_addra_out <= STD_LOGIC_VECTOR(padi_base + ((row + 1) * output_image_length) + column + 1);
+                                padi_addra_out <= STD_LOGIC_VECTOR(padi_base + ((row + 1) * output_image_length_g) + column + 1);
                                 padi_dina_out <= input_value;
                                 if (row = 0) then
                                     --if this is the first row of input image
@@ -158,23 +158,23 @@ begin
                                     if (column = 0) then
                                         --if this is top left corner, save the value.
                                         top_left := input_value;
-                                    elsif (column = input_image_length - 1) then
+                                    elsif (column = input_image_length_g - 1) then
                                         --if this is top right corner, save the value.
                                         top_right := input_value;
                                     end if;
-                                elsif (row = input_image_length - 1) then
+                                elsif (row = input_image_length_g - 1) then
                                     --if this is the last row of input image
                                     --duplicate it to pad the bottom edge by
                                     --setting corresponding address and data to
                                     --port b of padded ram.
-                                    padi_addrb_out <= STD_LOGIC_VECTOR(padi_base + ((row + 2) * output_image_length) + column + 1);
+                                    padi_addrb_out <= STD_LOGIC_VECTOR(padi_base + ((row + 2) * output_image_length_g) + column + 1);
                                     padi_dinb_out <= input_value;
                                     write_to_b := '1';
                                     if (column = 0) then
                                         --if this is bottom left corner,
                                         --save the value.
                                         bottom_left := input_value;
-                                    elsif (column = input_image_length - 1) then
+                                    elsif (column = input_image_length_g - 1) then
                                         --if this is bottom right corner,
                                         --save the value.
                                         bottom_right := input_value;
@@ -184,15 +184,15 @@ begin
                                     --duplicate it to pad the left edge by
                                     --setting corresponding address and data to
                                     --port b of padded ram.
-                                    padi_addrb_out <= STD_LOGIC_VECTOR(padi_base + ((row + 1) * output_image_length) + column);
+                                    padi_addrb_out <= STD_LOGIC_VECTOR(padi_base + ((row + 1) * output_image_length_g) + column);
                                     padi_dinb_out <= input_value;
                                     write_to_b := '1';
-                                elsif (column = input_image_length - 1) then
+                                elsif (column = input_image_length_g - 1) then
                                     --if this is the last column of input image
                                     --duplicate it to pad the right edge by
                                     --setting corresponding address and data to
                                     --port b of padded ram.
-                                    padi_addrb_out <= STD_LOGIC_VECTOR(padi_base + ((row + 1) * output_image_length) + column + 2);
+                                    padi_addrb_out <= STD_LOGIC_VECTOR(padi_base + ((row + 1) * output_image_length_g) + column + 2);
                                     padi_dinb_out <= input_value;
                                     write_to_b := '1';
                                 end if;

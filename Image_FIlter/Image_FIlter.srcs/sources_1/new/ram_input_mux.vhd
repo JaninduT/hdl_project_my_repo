@@ -25,7 +25,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -33,6 +33,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity ram_input_mux is
+    Generic (addr_length_g : Integer := 10; --size of the memory address(10bits)
+             data_size_g : Integer := 8); --size of the pixel data (8bits)
+             
     Port ( --signal to enable inputs from padding unit.
            padding_en_in : in STD_LOGIC;
            --signal to enable inputs from convolution unit.
@@ -42,25 +45,25 @@ entity ram_input_mux is
            --write enable from convolution unit to i/o ram.
            ioi_wea_convu_in : in STD_LOGIC_VECTOR (0 downto 0);
            --data address from padding unit to i/o ram.
-           ioi_addra_pu_in : in STD_LOGIC_VECTOR (9 downto 0);
+           ioi_addra_pu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            --data address from convolution unit to i/o ram.
-           ioi_addra_convu_in : in STD_LOGIC_VECTOR (9 downto 0);
+           ioi_addra_convu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            --write enable from padding unit to padded ram port a.
            padi_wea_pu_in : in STD_LOGIC_VECTOR (0 downto 0);
            --write enable from convolution unit to padded ram port a.
            padi_wea_convu_in : in STD_LOGIC_VECTOR (0 downto 0);
            --data address from padding unit to padded ram port a.
-           padi_addra_pu_in : in STD_LOGIC_VECTOR (9 downto 0);
+           padi_addra_pu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            --data address from convolution unit to padded ram port a.
-           padi_addra_convu_in : in STD_LOGIC_VECTOR (9 downto 0);
+           padi_addra_convu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            --write enable signal from mux to i/o ram.
            ioi_wea_out : out STD_LOGIC_VECTOR (0 downto 0);
            --data address from mux to i/o ram.
-           ioi_addra_out : out STD_LOGIC_VECTOR (9 downto 0);
+           ioi_addra_out : out STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            --write enable signal from mux to padded ram.
            padi_wea_out : out STD_LOGIC_VECTOR (0 downto 0);
            --data address from mux to padded ram.
-           padi_addra_out : out STD_LOGIC_VECTOR (9 downto 0));
+           padi_addra_out : out STD_LOGIC_VECTOR (addr_length_g -1 downto 0));
 end ram_input_mux;
 
 architecture Behavioral of ram_input_mux is
@@ -85,9 +88,9 @@ begin
             else
                 --when unintentional inputs
                 ioi_wea_out <= "0";
-                ioi_addra_out <= "0000000000";
+                ioi_addra_out <= std_logic_vector(to_unsigned(0, addr_length_g));
                 padi_wea_out <= "0";
-                padi_addra_out <= "0000000000";
+                padi_addra_out <= std_logic_vector(to_unsigned(0, addr_length_g));
             end if;
         end process multiplex;
 end Behavioral;

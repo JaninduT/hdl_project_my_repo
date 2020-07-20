@@ -65,31 +65,30 @@ component padded_image_ram is
 end component;
 
 component padding_unit is
-    Generic (addr_length : Integer := 10;
-             data_size : Integer := 8;
-             input_image_length : Integer := 25;
-             output_image_length : Integer := 27);
+    Generic (addr_length_g : Integer := 10;
+             data_size_g : Integer := 8;
+             input_image_length_g : Integer := 25;
+             output_image_length_g : Integer := 27);
              
     Port ( clk : in STD_LOGIC;
            rst_n : in STD_LOGIC;
            start_in : in STD_LOGIC;
            finished_out : out STD_LOGIC;
            ioi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
-           ioi_addra_out : out STD_LOGIC_VECTOR(addr_length-1 DOWNTO 0);
-           ioi_douta_in : in STD_LOGIC_VECTOR(data_size-1 DOWNTO 0);
+           ioi_addra_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0);
+           ioi_douta_in : in STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0);
            padi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
-           padi_addra_out : out STD_LOGIC_VECTOR(addr_length-1 DOWNTO 0);
-           padi_dina_out : out STD_LOGIC_VECTOR(data_size-1 DOWNTO 0);
+           padi_addra_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0);
+           padi_dina_out : out STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0);
            padi_web_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
-           padi_addrb_out : out STD_LOGIC_VECTOR(addr_length-1 DOWNTO 0);
-           padi_dinb_out : out STD_LOGIC_VECTOR(data_size-1 DOWNTO 0)
-           );
+           padi_addrb_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0);
+           padi_dinb_out : out STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0));
 end component;
 
 component Convolution is
     Generic (addr_bit_size : INTEGER := 9;
              data_bit_size : INTEGER := 7; 
-             total_bit_size : INTEGER :=11);             
+             total_bit_size : INTEGER := 11);             
     
     Port ( data_a_in : in STD_LOGIC_VECTOR(data_bit_size DOWNTO 0);
            data_a_out : out STD_LOGIC_VECTOR(data_bit_size DOWNTO 0);
@@ -117,20 +116,23 @@ component control_unit is
 end component;
 
 component ram_input_mux is
+    Generic (addr_length_g : Integer := 10;
+             data_size_g : Integer := 8);
+             
     Port ( padding_en_in : in STD_LOGIC;
            convolve_en_in : in STD_LOGIC;
            ioi_wea_pu_in : in STD_LOGIC_VECTOR (0 downto 0);
            ioi_wea_convu_in : in STD_LOGIC_VECTOR (0 downto 0);
-           ioi_addra_pu_in : in STD_LOGIC_VECTOR (9 downto 0);
-           ioi_addra_convu_in : in STD_LOGIC_VECTOR (9 downto 0);
+           ioi_addra_pu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
+           ioi_addra_convu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            padi_wea_pu_in : in STD_LOGIC_VECTOR (0 downto 0);
            padi_wea_convu_in : in STD_LOGIC_VECTOR (0 downto 0);
-           padi_addra_pu_in : in STD_LOGIC_VECTOR (9 downto 0);
-           padi_addra_convu_in : in STD_LOGIC_VECTOR (9 downto 0);
+           padi_addra_pu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
+           padi_addra_convu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            ioi_wea_out : out STD_LOGIC_VECTOR (0 downto 0);
-           ioi_addra_out : out STD_LOGIC_VECTOR (9 downto 0);
+           ioi_addra_out : out STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            padi_wea_out : out STD_LOGIC_VECTOR (0 downto 0);
-           padi_addra_out : out STD_LOGIC_VECTOR (9 downto 0));
+           padi_addra_out : out STD_LOGIC_VECTOR (addr_length_g -1 downto 0));
 end component;
 
 signal start_padding_cu_to_pu : STD_LOGIC;

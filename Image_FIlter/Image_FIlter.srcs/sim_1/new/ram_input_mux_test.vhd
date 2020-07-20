@@ -38,20 +38,23 @@ end ram_input_mux_test;
 architecture Behavioral of ram_input_mux_test is
 
 component ram_input_mux is
+    Generic (addr_length_g : Integer := 10;
+             data_size_g : Integer := 8);
+             
     Port ( padding_en_in : in STD_LOGIC;
            convolve_en_in : in STD_LOGIC;
            ioi_wea_pu_in : in STD_LOGIC_VECTOR (0 downto 0);
            ioi_wea_convu_in : in STD_LOGIC_VECTOR (0 downto 0);
-           ioi_addra_pu_in : in STD_LOGIC_VECTOR (9 downto 0);
-           ioi_addra_convu_in : in STD_LOGIC_VECTOR (9 downto 0);
+           ioi_addra_pu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
+           ioi_addra_convu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            padi_wea_pu_in : in STD_LOGIC_VECTOR (0 downto 0);
            padi_wea_convu_in : in STD_LOGIC_VECTOR (0 downto 0);
-           padi_addra_pu_in : in STD_LOGIC_VECTOR (9 downto 0);
-           padi_addra_convu_in : in STD_LOGIC_VECTOR (9 downto 0);
+           padi_addra_pu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
+           padi_addra_convu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            ioi_wea_out : out STD_LOGIC_VECTOR (0 downto 0);
-           ioi_addra_out : out STD_LOGIC_VECTOR (9 downto 0);
+           ioi_addra_out : out STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            padi_wea_out : out STD_LOGIC_VECTOR (0 downto 0);
-           padi_addra_out : out STD_LOGIC_VECTOR (9 downto 0));
+           padi_addra_out : out STD_LOGIC_VECTOR (addr_length_g -1 downto 0));
 end component;
 
 signal padding_en_in : STD_LOGIC;
@@ -101,15 +104,30 @@ stimuli : process
         padi_addra_convu_in <= "1111100000";
         wait for 10ns;
         padding_en_in <= '1';
+        wait for 10ns;
+        assert (ioi_addra_out = "0000011111" and padi_addra_out = "0000011111")
+            report "Multiplexing Logic Error(pu enabled)"
+            severity WARNING;
         wait for 20ns;
         padding_en_in <= '0';
         convolve_en_in <= '1';
+        wait for 10ns;
+        assert (ioi_addra_out = "1111100000" and padi_addra_out = "1111100000")
+            report "Multiplexing Logic Error(convu enabled)"
+            severity WARNING;
         wait for 40ns;
         padding_en_in <= '0';
         convolve_en_in <= '0';
+        wait for 10ns;
+        assert (ioi_addra_out = "0000000000" and padi_addra_out = "0000000000")
+            report "Multiplexing Logic Error(unintentional inputs)"
+            severity WARNING;
         wait for 20ns;
         padding_en_in <= '1';
         convolve_en_in <= '1';
+        assert (ioi_addra_out = "0000000000" and padi_addra_out = "0000000000")
+            report "Multiplexing Logic Error(unintentional inputs)"
+            severity WARNING;
         wait;
     end process;
 end Behavioral;

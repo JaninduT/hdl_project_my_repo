@@ -38,23 +38,24 @@ end padding_unit_w_in_mem;
 architecture Behavioral of padding_unit_w_in_mem is
 
 component padding_unit is
+    Generic (addr_length_g : Integer := 10;
+             data_size_g : Integer := 8;
+             input_image_length_g : Integer := 25;
+             output_image_length_g : Integer := 27);
+             
     Port ( clk : in STD_LOGIC;
            rst_n : in STD_LOGIC;
            start_in : in STD_LOGIC;
            finished_out : out STD_LOGIC;
            ioi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
-           ioi_addra_out : out STD_LOGIC_VECTOR(9 DOWNTO 0);
-           --ioi_dina : out STD_LOGIC_VECTOR(7 DOWNTO 0);
-           ioi_douta_in : in STD_LOGIC_VECTOR(7 DOWNTO 0);
+           ioi_addra_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0);
+           ioi_douta_in : in STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0);
            padi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
-           padi_addra_out : out STD_LOGIC_VECTOR(9 DOWNTO 0);
-           padi_dina_out : out STD_LOGIC_VECTOR(7 DOWNTO 0);
-           --padi_douta : in STD_LOGIC_VECTOR(7 DOWNTO 0);
+           padi_addra_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0);
+           padi_dina_out : out STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0);
            padi_web_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
-           padi_addrb_out : out STD_LOGIC_VECTOR(9 DOWNTO 0);
-           padi_dinb_out : out STD_LOGIC_VECTOR(7 DOWNTO 0)
-           --padi_doutb : in STD_LOGIC_VECTOR(7 DOWNTO 0)
-           );
+           padi_addrb_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0);
+           padi_dinb_out : out STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0));
 end component;
 
 component input_output_ram is

@@ -31,7 +31,7 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="basys3"/>
-    <Option Name="WTXSimLaunchSim" Val="229"/>
+    <Option Name="WTXSimLaunchSim" Val="232"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -184,19 +184,19 @@
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sim_1/new/ram_input_mux_test.vhd">
+      <File Path="$PSRCDIR/sim_1/new/control_unit_test.vhd">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_multiplexer_added_complete/Image_FIlter_multiplexer_added_complete/Image_FIlter/Image_FIlter.srcs/sim_1/new/ram_input_mux_test.vhd"/>
-          <Attr Name="ImportTime" Val="1593883952"/>
+          <Attr Name="ImportPath" Val="D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_multiplexer_added_complete/Image_FIlter_multiplexer_added_complete/Image_FIlter/Image_FIlter.srcs/sim_1/new/control_unit_test.vhd"/>
+          <Attr Name="ImportTime" Val="1593954403"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sim_1/new/control_unit_test.vhd">
+      <File Path="$PSRCDIR/sim_1/new/ram_input_mux_test.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_multiplexer_added_complete/Image_FIlter_multiplexer_added_complete/Image_FIlter/Image_FIlter.srcs/sim_1/new/control_unit_test.vhd"/>
-          <Attr Name="ImportTime" Val="1593954403"/>
+          <Attr Name="ImportPath" Val="D:/Sem7/HDL/Project/ImageFilter/Image_FIlter_multiplexer_added_complete/Image_FIlter_multiplexer_added_complete/Image_FIlter/Image_FIlter.srcs/sim_1/new/ram_input_mux_test.vhd"/>
+          <Attr Name="ImportTime" Val="1593883952"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -255,13 +255,14 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="ram_input_mux_test"/>
+        <Option Name="TopModule" Val="control_unit_test"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
         <Option Name="SelectedSimModel" Val="rtl"/>
         <Option Name="SrcSet" Val="sources_1"/>
         <Option Name="xsim.simulate.runtime" Val="1000000ns"/>
+        <Option Name="NLNetlistMode" Val="funcsim"/>
       </Config>
     </FileSet>
     <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
@@ -304,7 +305,9 @@
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2019"/>
         <Step Id="init_design"/>
-        <Step Id="opt_design"/>
+        <Step Id="opt_design">
+          <Option Id="Directive">5</Option>
+        </Step>
         <Step Id="power_opt_design"/>
         <Step Id="place_design"/>
         <Step Id="post_place_power_opt_design"/>

@@ -89,7 +89,6 @@ begin
                 comm_state <= Idle;
                 pix_data <= std_logic_vector(to_unsigned(base_val, pix_data 'length));
                 mem_addra := 0;
-                ioi_wea_out <= "0";
                 write_wait := 0;
                 clear_rx_tx := '1';
                 finished_op_out <= '0';

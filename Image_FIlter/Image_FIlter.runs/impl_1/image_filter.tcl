@@ -68,7 +68,6 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 3
-  set_param synth.incrementalSynthesisCache C:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-11376-DESKTOP-V5A9UPS/incrSyn
   create_project -in_memory -part xc7a35tcpg236-1
   set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
@@ -97,7 +96,7 @@ start_step opt_design
 set ACTIVE_STEP opt_design
 set rc [catch {
   create_msg_db opt_design.pb
-  opt_design 
+  opt_design -directive NoBramPowerOpt
   write_checkpoint -force image_filter_opt.dcp
   create_report "impl_1_opt_report_drc_0" "report_drc -file image_filter_drc_opted.rpt -pb image_filter_drc_opted.pb -rpx image_filter_drc_opted.rpx"
   close_msg_db -file opt_design.pb

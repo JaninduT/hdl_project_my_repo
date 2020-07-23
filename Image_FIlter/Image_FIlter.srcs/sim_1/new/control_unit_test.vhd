@@ -99,6 +99,10 @@ stimuli : process
         comm_done_in <= '0';
         start_op_in <= '0';
         wait for 5ns;
+        rst_n <= '0';
+        wait for 20ns;
+        rst_n <= '1';
+        wait for 10ns;
         start_op_in <= '1';
         wait for 10ns;
         start_op_in <= '0';

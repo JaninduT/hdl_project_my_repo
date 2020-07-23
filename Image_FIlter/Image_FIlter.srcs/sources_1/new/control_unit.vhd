@@ -69,14 +69,21 @@ architecture Behavioral of control_unit is
 type state is (Idle, Data_Receive, Padding, Convolving, Data_Sending, Finished);
 signal op_state : state;
 
--- There are 4 states in the fsm.
+-- There are 6 states in the fsm.
 -- 1. Idle - fsm waits in Idle state until the start_op_in signal gets high to
--- start the image filtering process by setting padding unit start.
--- 2. Padding - fsm waits in the Padding state when the paddding
+-- start the image filtering process by starting uart communication unit
+-- to do data receive.
+-- 2. Data_Receive - fsm waits in Data_Receive state until the operation
+-- complete signal from the uart communication unit. Then it moves to
+-- Padding state by enabling padding operation.
+-- 3. Padding - fsm waits in the Padding state when the paddding
 -- unit is operating.
--- 3. Convolving - fsm waits in the Convolving state when the
+-- 4. Convolving - fsm waits in the Convolving state when the
 -- convolution unit is operating.
--- 4. Finished - After the Convolving state, fsm goes to Finished state
+-- 5. Data_Sending - After the Convolution state, fsm goes to Data_Sending state
+-- by enabling uart communication  unit to send data and when in Data_Sending
+-- state, it waits till the operation finished signal.
+-- 4. Finished - After the Data_Sending state, fsm goes to Finished state
 -- with the convolve done signal and when in finished state, fsm signal finished_op_out
 -- for one clock cycle and goes to Idle state.
 
@@ -91,9 +98,6 @@ begin
                 start_convolve_out <= '0';
                 start_comm_out <= '0';
                 select_comm_op_out <= '0';
-                enable_mux_padding_out <= '0';
-                enable_mux_convolve_out <= '0';
-                enable_mux_comm_out <= '0';
             elsif ( clk'event and clk = '1' ) then
                 case op_state is
                     when Idle =>
@@ -107,10 +111,10 @@ begin
                         enable_mux_convolve_out <= '0';
                         enable_mux_comm_out <= '0';
                         if ( start_op_in = '1' ) then
-                            --with start signal, move to Padding state,
-                            --signal padding unit to start and signal mux to
-                            --enable communication between padding unit and
-                            --memory elements.
+                            --with start signal, move to Data_Receive state,
+                            --signal uart communication unit to start data
+                            --receiving and signal mux to enable communication
+                            --between uart communication unit and memory elements.
                             op_state <= Data_Receive;
                             start_comm_out <= '1';
                             select_comm_op_out <= '1';
@@ -122,6 +126,10 @@ begin
                         start_comm_out <= '0';
                         select_comm_op_out <= '0';
                         if (comm_done_in = '1') then
+                            --with comm_done signal, move to Padding state,
+                            --signal padding unit to start and signal mux to
+                            --enable communication between padding unit and
+                            --memory elements.
                             op_state <= Padding;
                             start_padding_out <= '1';
                             enable_mux_padding_out <= '1';
@@ -143,8 +151,10 @@ begin
                         end if;
                     when Convolving =>
                         if ( convolve_done_in = '1' ) then
-                            --with convolution done signal, move to Finished 
-                            --state.
+                            --with convolution done signal, move to Data_Sending 
+                            --state. Signal uart communication unit to start data
+                            --sending and signal mux to enable communication
+                            --between uart communication unit and memory elements.
                             start_convolve_out <= '0';
                             op_state <= Data_Sending;
                             start_comm_out <= '1';
@@ -157,6 +167,7 @@ begin
                         start_comm_out <= '0';
                         select_comm_op_out <= '0';
                         if (comm_done_in = '1') then
+                            --With comm_done signal, move to Finished state.
                             op_state <= Finished;
                             enable_mux_padding_out <= '0';
                             enable_mux_convolve_out <= '0';

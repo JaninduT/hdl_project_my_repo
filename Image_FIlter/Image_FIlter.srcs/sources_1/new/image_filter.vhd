@@ -35,6 +35,8 @@ entity image_filter is
     Port ( clk : in STD_LOGIC;
            rst_n : in STD_LOGIC;
            start_in : in STD_LOGIC;
+           rx : in STD_LOGIC;
+           tx : out STD_LOGIC;
            --wea_to_ioi : inout STD_LOGIC_VECTOR(0 DOWNTO 0);
            --dina_to_ioi : inout STD_LOGIC_VECTOR(7 DOWNTO 0);
            --addra_to_ioi : inout STD_LOGIC_VECTOR (9 DOWNTO 0);
@@ -107,12 +109,16 @@ component control_unit is
            rst_n : in STD_LOGIC;
            padding_done_in : in STD_LOGIC;
            convolve_done_in : in STD_LOGIC;
+           comm_done_in : in STD_LOGIC;
            start_op_in : in STD_LOGIC;
            finished_op_out : out STD_LOGIC;
            enable_mux_padding_out : out STD_LOGIC;
            enable_mux_convolve_out : out STD_LOGIC;
+           enable_mux_comm_out : out STD_LOGIC;
            start_padding_out : out STD_LOGIC;
-           start_convolve_out : out STD_LOGIC);
+           start_convolve_out : out STD_LOGIC;
+           start_comm_out : out STD_LOGIC;
+           select_comm_op_out : out STD_LOGIC);
 end component;
 
 component ram_input_mux is
@@ -121,26 +127,95 @@ component ram_input_mux is
              
     Port ( padding_en_in : in STD_LOGIC;
            convolve_en_in : in STD_LOGIC;
+           comm_en_in : in STD_LOGIC;
            ioi_wea_pu_in : in STD_LOGIC_VECTOR (0 downto 0);
            ioi_wea_convu_in : in STD_LOGIC_VECTOR (0 downto 0);
+           ioi_wea_comm_in : in STD_LOGIC_VECTOR (0 downto 0);
            ioi_addra_pu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            ioi_addra_convu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
+           ioi_addra_comm_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
+           ioi_dina_convu_in : in STD_LOGIC_VECTOR (data_size_g -1 downto 0);
+           ioi_dina_comm_in : in STD_LOGIC_VECTOR (data_size_g -1 downto 0);
            padi_wea_pu_in : in STD_LOGIC_VECTOR (0 downto 0);
            padi_wea_convu_in : in STD_LOGIC_VECTOR (0 downto 0);
            padi_addra_pu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            padi_addra_convu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            ioi_wea_out : out STD_LOGIC_VECTOR (0 downto 0);
            ioi_addra_out : out STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
+           ioi_dina_out : out STD_LOGIC_VECTOR (data_size_g -1 downto 0);
            padi_wea_out : out STD_LOGIC_VECTOR (0 downto 0);
            padi_addra_out : out STD_LOGIC_VECTOR (addr_length_g -1 downto 0));
 end component;
 
+component uart_comm_unit is
+    Generic (mem_addr_size_g : integer := 10;
+             pixel_data_size_g : integer := 8);
+
+    Port ( clk : in STD_LOGIC;
+           rst_n : in STD_LOGIC;
+           start_op_in : in STD_LOGIC;
+           finished_op_out : out STD_LOGIC;
+           send_rec_select_in : in STD_LOGIC;
+           ioi_addra_out : out STD_LOGIC_VECTOR (mem_addr_size_g -1 downto 0);
+           ioi_dina_out : out STD_LOGIC_VECTOR (pixel_data_size_g -1 downto 0);
+           ioi_douta_in : in STD_LOGIC_VECTOR (pixel_data_size_g -1 downto 0);
+           ioi_wea_out : out STD_LOGIC_VECTOR (0 downto 0);
+           uart_interrupt_in : in STD_LOGIC;
+           uart_s_axi_awaddr_out : out STD_LOGIC_VECTOR(3 DOWNTO 0);
+           uart_s_axi_awvalid_out : out STD_LOGIC;
+           uart_s_axi_awready_in : in STD_LOGIC;
+           uart_s_axi_wdata_out : out STD_LOGIC_VECTOR(31 DOWNTO 0);
+           uart_s_axi_wstrb_out : out STD_LOGIC_VECTOR(3 DOWNTO 0);
+           uart_s_axi_wvalid_out : out STD_LOGIC;
+           uart_s_axi_wready_in : in STD_LOGIC;
+           uart_s_axi_bresp_in : in STD_LOGIC_VECTOR(1 DOWNTO 0);
+           uart_s_axi_bvalid_in : in STD_LOGIC;
+           uart_s_axi_bready_out : out STD_LOGIC;
+           uart_s_axi_araddr_out : out STD_LOGIC_VECTOR(3 DOWNTO 0);
+           uart_s_axi_arvalid_out : out STD_LOGIC;
+           uart_s_axi_arready_in : in STD_LOGIC;
+           uart_s_axi_rdata_in : in STD_LOGIC_VECTOR(31 DOWNTO 0);
+           uart_s_axi_rresp_in : in STD_LOGIC_VECTOR(1 DOWNTO 0);
+           uart_s_axi_rvalid_in : in STD_LOGIC;
+           uart_s_axi_rready_out : out STD_LOGIC);
+end component;
+
+component axi_uartlite_unit is
+    Port (s_axi_aclk : IN STD_LOGIC;
+          s_axi_aresetn : IN STD_LOGIC;
+          interrupt : OUT STD_LOGIC;
+          s_axi_awaddr : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+          s_axi_awvalid : IN STD_LOGIC;
+          s_axi_awready : OUT STD_LOGIC;
+          s_axi_wdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+          s_axi_wstrb : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+          s_axi_wvalid : IN STD_LOGIC;
+          s_axi_wready : OUT STD_LOGIC;
+          s_axi_bresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+          s_axi_bvalid : OUT STD_LOGIC;
+          s_axi_bready : IN STD_LOGIC;
+          s_axi_araddr : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+          s_axi_arvalid : IN STD_LOGIC;
+          s_axi_arready : OUT STD_LOGIC;
+          s_axi_rdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+          s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+          s_axi_rvalid : OUT STD_LOGIC;
+          s_axi_rready : IN STD_LOGIC;
+          rx : IN STD_LOGIC;
+          tx : OUT STD_LOGIC);
+end component;
+
+
 signal start_padding_cu_to_pu : STD_LOGIC;
 signal start_convolve_cu_to_convu : STD_LOGIC;
+signal start_comm_cu_to_comm : STD_LOGIC;
+signal select_comm_op_cu_to_comm : STD_LOGIC;
 signal finished_pu_to_cu : STD_LOGIC;
 signal finished_convu_to_cu : STD_LOGIC;
+signal finished_comm_to_cu : STD_LOGIC;
 signal enable_mux_padding_cu_to_mux : STD_LOGIC;
 signal enable_mux_convolve_cu_to_mux : STD_LOGIC;
+signal enable_mux_comm_cu_to_mux : STD_LOGIC;
 signal wea_to_ioi : STD_LOGIC_VECTOR (0 DOWNTO 0);
 signal addra_to_ioi : STD_LOGIC_VECTOR (9 DOWNTO 0);
 signal dina_to_ioi : STD_LOGIC_VECTOR (7 DOWNTO 0);
@@ -157,10 +232,32 @@ signal ioi_wea_pu_to_mux : STD_LOGIC_VECTOR (0 DOWNTO 0);
 signal ioi_addra_pu_to_mux : STD_LOGIC_VECTOR (9 DOWNTO 0);
 signal ioi_wea_convu_to_mux : STD_LOGIC_VECTOR (0 DOWNTO 0);
 signal ioi_addra_convu_to_mux : STD_LOGIC_VECTOR (9 DOWNTO 0);
+signal ioi_wea_comm_to_mux : STD_LOGIC_VECTOR (0 DOWNTO 0);
+signal ioi_addra_comm_to_mux : STD_LOGIC_VECTOR (9 DOWNTO 0);
+signal ioi_dina_convu_to_mux : STD_LOGIC_VECTOR (7 DOWNTO 0);
+signal ioi_dina_comm_to_mux : STD_LOGIC_VECTOR (7 DOWNTO 0);
 signal padi_wea_pu_to_mux : STD_LOGIC_VECTOR (0 DOWNTO 0);
 signal padi_addra_pu_to_mux : STD_LOGIC_VECTOR (9 DOWNTO 0);
 signal padi_wea_convu_to_mux : STD_LOGIC_VECTOR (0 DOWNTO 0);
 signal padi_addra_convu_to_mux : STD_LOGIC_VECTOR (9 DOWNTO 0);
+signal interrupt_auu_to_comm : STD_LOGIC;
+signal s_axi_awaddr_comm_to_auu : STD_LOGIC_VECTOR(3 DOWNTO 0);
+signal s_axi_awvalid_comm_to_auu : STD_LOGIC;
+signal s_axi_awready_auu_to_comm : STD_LOGIC;
+signal s_axi_wdata_comm_to_auu : STD_LOGIC_VECTOR(31 DOWNTO 0);
+signal s_axi_wstrb_comm_to_auu : STD_LOGIC_VECTOR(3 DOWNTO 0);
+signal s_axi_wvalid_comm_to_auu : STD_LOGIC;
+signal s_axi_wready_auu_to_comm : STD_LOGIC;
+signal s_axi_bresp_auu_to_comm : STD_LOGIC_VECTOR(1 DOWNTO 0);
+signal s_axi_bvalid_auu_to_comm : STD_LOGIC;
+signal s_axi_bready_comm_to_auu : STD_LOGIC;
+signal s_axi_araddr_comm_to_auu : STD_LOGIC_VECTOR(3 DOWNTO 0);
+signal s_axi_arvalid_comm_to_auu : STD_LOGIC;
+signal s_axi_arready_auu_to_comm : STD_LOGIC;
+signal s_axi_rdata_auu_to_comm : STD_LOGIC_VECTOR(31 DOWNTO 0);
+signal s_axi_rresp_auu_to_comm : STD_LOGIC_VECTOR(1 DOWNTO 0);
+signal s_axi_rvalid_auu_to_comm : STD_LOGIC;
+signal s_axi_rready_comm_to_auu : STD_LOGIC;
 
 begin
 
@@ -203,7 +300,7 @@ convolution_unit_1_convu : Convolution
              clk => clk,
              reset_in => rst_n,
              paddone_in => start_convolve_cu_to_convu,
-             data_a_out => dina_to_ioi,
+             data_a_out => ioi_dina_convu_to_mux,
              write_en_a_out => ioi_wea_convu_to_mux,
              write_en_p_out => padi_wea_convu_to_mux,
              read_addr_out => padi_addra_convu_to_mux,
@@ -215,27 +312,90 @@ control_unit_1_cu : control_unit
              rst_n => rst_n,
              padding_done_in => finished_pu_to_cu,
              convolve_done_in => finished_convu_to_cu,
+             comm_done_in => finished_comm_to_cu,
              start_op_in => start_in,
              finished_op_out => finished_out,
              enable_mux_padding_out => enable_mux_padding_cu_to_mux,
              enable_mux_convolve_out => enable_mux_convolve_cu_to_mux,
+             enable_mux_comm_out => enable_mux_comm_cu_to_mux,
              start_padding_out => start_padding_cu_to_pu,
-             start_convolve_out => start_convolve_cu_to_convu);
+             start_convolve_out => start_convolve_cu_to_convu,
+             start_comm_out => start_comm_cu_to_comm,
+             select_comm_op_out => select_comm_op_cu_to_comm);
 
-ram_input_mux_1 : ram_input_mux
+ram_input_mux_1_mux : ram_input_mux
     port map (padding_en_in => enable_mux_padding_cu_to_mux,
               convolve_en_in => enable_mux_convolve_cu_to_mux,
+              comm_en_in => enable_mux_comm_cu_to_mux,
               ioi_wea_pu_in => ioi_wea_pu_to_mux,
               ioi_wea_convu_in => ioi_wea_convu_to_mux,
+              ioi_wea_comm_in => ioi_wea_comm_to_mux,
               ioi_addra_pu_in => ioi_addra_pu_to_mux,
               ioi_addra_convu_in => ioi_addra_convu_to_mux,
+              ioi_addra_comm_in => ioi_addra_comm_to_mux,
+              ioi_dina_convu_in => ioi_dina_convu_to_mux,
+              ioi_dina_comm_in => ioi_dina_comm_to_mux,
               padi_wea_pu_in => padi_wea_pu_to_mux,
               padi_wea_convu_in => padi_wea_convu_to_mux,
               padi_addra_pu_in => padi_addra_pu_to_mux,
               padi_addra_convu_in => padi_addra_convu_to_mux,
               ioi_wea_out => wea_to_ioi,
               ioi_addra_out => addra_to_ioi,
+              ioi_dina_out => dina_to_ioi,
               padi_wea_out => wea_to_padi,
               padi_addra_out => addra_to_padi);
+
+uart_communication_unit_1_comm : uart_comm_unit
+    port map (clk => clk,
+              rst_n =>rst_n,
+              start_op_in => start_comm_cu_to_comm,
+              finished_op_out => finished_comm_to_cu,
+              send_rec_select_in => select_comm_op_cu_to_comm,
+              ioi_addra_out => ioi_addra_comm_to_mux,
+              ioi_douta_in => douta_from_ioi,
+              ioi_dina_out => ioi_dina_comm_to_mux,
+              ioi_wea_out => ioi_wea_comm_to_mux,
+              uart_interrupt_in => interrupt_auu_to_comm,
+              uart_s_axi_awaddr_out => s_axi_awaddr_comm_to_auu,
+              uart_s_axi_awvalid_out => s_axi_awvalid_comm_to_auu,
+              uart_s_axi_awready_in => s_axi_awready_auu_to_comm,
+              uart_s_axi_wdata_out => s_axi_wdata_comm_to_auu,
+              uart_s_axi_wstrb_out => s_axi_wstrb_comm_to_auu,
+              uart_s_axi_wvalid_out => s_axi_wvalid_comm_to_auu,
+              uart_s_axi_wready_in => s_axi_wready_auu_to_comm,
+              uart_s_axi_bresp_in => s_axi_bresp_auu_to_comm,
+              uart_s_axi_bvalid_in => s_axi_bvalid_auu_to_comm,
+              uart_s_axi_bready_out => s_axi_bready_comm_to_auu,
+              uart_s_axi_araddr_out => s_axi_araddr_comm_to_auu,
+              uart_s_axi_arvalid_out => s_axi_arvalid_comm_to_auu,
+              uart_s_axi_arready_in => s_axi_arready_auu_to_comm,
+              uart_s_axi_rdata_in => s_axi_rdata_auu_to_comm,
+              uart_s_axi_rresp_in => s_axi_rresp_auu_to_comm,
+              uart_s_axi_rvalid_in => s_axi_rvalid_auu_to_comm,
+              uart_s_axi_rready_out => s_axi_rready_comm_to_auu);
+
+axi_uartlite_module_1_auu : axi_uartlite_unit
+    port map (s_axi_aclk => clk,
+              s_axi_aresetn => rst_n,
+              interrupt => interrupt_auu_to_comm,
+              s_axi_awaddr => s_axi_awaddr_comm_to_auu,
+              s_axi_awvalid => s_axi_awvalid_comm_to_auu,
+              s_axi_awready => s_axi_awready_auu_to_comm,
+              s_axi_wdata => s_axi_wdata_comm_to_auu,
+              s_axi_wstrb => s_axi_wstrb_comm_to_auu,
+              s_axi_wvalid => s_axi_wvalid_comm_to_auu,
+              s_axi_wready => s_axi_wready_auu_to_comm,
+              s_axi_bresp => s_axi_bresp_auu_to_comm,
+              s_axi_bvalid => s_axi_bvalid_auu_to_comm,
+              s_axi_bready => s_axi_bready_comm_to_auu,
+              s_axi_araddr => s_axi_araddr_comm_to_auu,
+              s_axi_arvalid => s_axi_arvalid_comm_to_auu,
+              s_axi_arready => s_axi_arready_auu_to_comm,
+              s_axi_rdata => s_axi_rdata_auu_to_comm,
+              s_axi_rresp => s_axi_rresp_auu_to_comm,
+              s_axi_rvalid => s_axi_rvalid_auu_to_comm,
+              s_axi_rready => s_axi_rready_comm_to_auu,
+              rx => rx,
+              tx => tx);
 
 end Behavioral;

@@ -68,7 +68,7 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 3
-  set_param synth.incrementalSynthesisCache C:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-14932-DESKTOP-V5A9UPS/incrSyn
+  set_param synth.incrementalSynthesisCache C:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-11376-DESKTOP-V5A9UPS/incrSyn
   create_project -in_memory -part xc7a35tcpg236-1
   set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
@@ -79,6 +79,7 @@ set rc [catch {
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_MEMORY [current_project]
   add_files -quiet E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.runs/synth_1/image_filter.dcp
+  read_ip -quiet E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/axi_uartlite_unit/axi_uartlite_unit.xci
   read_ip -quiet E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci
   read_ip -quiet E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/input_output_ram/input_output_ram.xci
   link_design -top image_filter -part xc7a35tcpg236-1

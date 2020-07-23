@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sim_1/new/padding_unit_test.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'padding_unit_test'
+INFO: [VRFC 10-163] Analyzing VHDL file "E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sim_1/new/ram_input_mux_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'ram_input_mux_test'

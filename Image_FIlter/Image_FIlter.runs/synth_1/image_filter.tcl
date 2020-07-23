@@ -17,7 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param synth.incrementalSynthesisCache C:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-14932-DESKTOP-V5A9UPS/incrSyn
+set_param synth.incrementalSynthesisCache C:/Users/User/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-11376-DESKTOP-V5A9UPS/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35tcpg236-1
@@ -42,8 +42,14 @@ read_vhdl -library xil_defaultlib {
   E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/new/control_unit.vhd
   E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/new/padding_unit.vhd
   E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/new/ram_input_mux.vhd
+  E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/new/uart_comm_unit.vhd
   E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/new/image_filter.vhd
 }
+read_ip -quiet E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/axi_uartlite_unit/axi_uartlite_unit.xci
+set_property used_in_implementation false [get_files -all e:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/axi_uartlite_unit/axi_uartlite_unit_board.xdc]
+set_property used_in_implementation false [get_files -all e:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/axi_uartlite_unit/axi_uartlite_unit_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/axi_uartlite_unit/axi_uartlite_unit.xdc]
+
 read_ip -quiet E:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram.xci
 set_property used_in_implementation false [get_files -all e:/Academic/HDL/Image_Filter_myrepo/Image_FIlter/Image_FIlter.srcs/sources_1/ip/padded_image_ram/padded_image_ram_ooc.xdc]
 

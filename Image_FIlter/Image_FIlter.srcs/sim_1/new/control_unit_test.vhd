@@ -42,24 +42,32 @@ component control_unit is
            rst_n : in STD_LOGIC;
            padding_done_in : in STD_LOGIC;
            convolve_done_in : in STD_LOGIC;
+           comm_done_in : in STD_LOGIC;
            start_op_in : in STD_LOGIC;
            finished_op_out : out STD_LOGIC;
            enable_mux_padding_out : out STD_LOGIC;
            enable_mux_convolve_out : out STD_LOGIC;
+           enable_mux_comm_out : out STD_LOGIC;
            start_padding_out : out STD_LOGIC;
-           start_convolve_out : out STD_LOGIC);
+           start_convolve_out : out STD_LOGIC;
+           start_comm_out : out STD_LOGIC;
+           select_comm_op_out : out STD_LOGIC);
 end component;
 
 signal clk : STD_LOGIC := '0';
 signal rst_n : STD_LOGIC;
 signal padding_done_in : STD_LOGIC;
 signal convolve_done_in : STD_LOGIC;
+signal comm_done_in : STD_LOGIC;
 signal start_op_in : STD_LOGIC;
 signal finished_op_out : STD_LOGIC;
 signal enable_mux_padding_out : STD_LOGIC;
 signal enable_mux_convolve_out : STD_LOGIC;
+signal enable_mux_comm_out : STD_LOGIC;
 signal start_padding_out : STD_LOGIC;
 signal start_convolve_out : STD_LOGIC;
+signal start_comm_out : STD_LOGIC;
+signal select_comm_op_out : STD_LOGIC;
 
 
 begin
@@ -69,12 +77,16 @@ uut1 : control_unit
              rst_n => rst_n,
              padding_done_in => padding_done_in,
              convolve_done_in => convolve_done_in,
+             comm_done_in => comm_done_in,
              start_op_in => start_op_in,
              finished_op_out => finished_op_out,
              enable_mux_padding_out => enable_mux_padding_out,
              enable_mux_convolve_out => enable_mux_convolve_out,
+             enable_mux_comm_out => enable_mux_comm_out,
              start_padding_out => start_padding_out,
-             start_convolve_out => start_convolve_out);
+             start_convolve_out => start_convolve_out,
+             start_comm_out => start_comm_out,
+             select_comm_op_out => select_comm_op_out);
 
 
 clk <= not clk after 5ns;
@@ -84,17 +96,26 @@ stimuli : process
         rst_n <= '1';
         padding_done_in <= '0';
         convolve_done_in <= '0';
+        comm_done_in <= '0';
         start_op_in <= '0';
         wait for 5ns;
         start_op_in <= '1';
         wait for 10ns;
         start_op_in <= '0';
         wait for 50ns;
+        comm_done_in <= '1';
+        wait for 10ns;
+        comm_done_in <= '0';
+        wait for 50ns;
         padding_done_in <= '1';
         wait for 10ns;
         padding_done_in <= '0';
         wait for 50ns;
         convolve_done_in <= '1';
+        wait for 50ns;
+        comm_done_in <= '1';
+        wait for 10ns;
+        comm_done_in <= '0';
         wait;
     end process;
 end Behavioral;

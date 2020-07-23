@@ -40,14 +40,24 @@ entity ram_input_mux is
            padding_en_in : in STD_LOGIC;
            --signal to enable inputs from convolution unit.
            convolve_en_in : in STD_LOGIC;
+           --signal to enable inputs from uart communication unit.
+           comm_en_in : in STD_LOGIC;
            --write enable from padding unit to i/o ram.
            ioi_wea_pu_in : in STD_LOGIC_VECTOR (0 downto 0);
            --write enable from convolution unit to i/o ram.
            ioi_wea_convu_in : in STD_LOGIC_VECTOR (0 downto 0);
+           --write enable from uart communication unit to i/o ram.
+           ioi_wea_comm_in : in STD_LOGIC_VECTOR (0 downto 0);
            --data address from padding unit to i/o ram.
            ioi_addra_pu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
            --data address from convolution unit to i/o ram.
            ioi_addra_convu_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
+           --data address from uart communication unit to i/o ram.
+           ioi_addra_comm_in : in STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
+           --data from convolution unit to i/o ram.
+           ioi_dina_convu_in : in STD_LOGIC_VECTOR (data_size_g -1 downto 0);
+           --data from uart communication unit to i/o ram.
+           ioi_dina_comm_in : in STD_LOGIC_VECTOR (data_size_g -1 downto 0);
            --write enable from padding unit to padded ram port a.
            padi_wea_pu_in : in STD_LOGIC_VECTOR (0 downto 0);
            --write enable from convolution unit to padded ram port a.
@@ -60,6 +70,8 @@ entity ram_input_mux is
            ioi_wea_out : out STD_LOGIC_VECTOR (0 downto 0);
            --data address from mux to i/o ram.
            ioi_addra_out : out STD_LOGIC_VECTOR (addr_length_g -1 downto 0);
+           --data from mux to i/o ram.
+           ioi_dina_out : out STD_LOGIC_VECTOR (data_size_g -1 downto 0);
            --write enable signal from mux to padded ram.
            padi_wea_out : out STD_LOGIC_VECTOR (0 downto 0);
            --data address from mux to padded ram.
@@ -69,26 +81,37 @@ end ram_input_mux;
 architecture Behavioral of ram_input_mux is
 
 begin
-    multiplex : process (padding_en_in, convolve_en_in, ioi_wea_pu_in, ioi_wea_convu_in,
-    ioi_addra_pu_in, ioi_addra_convu_in, padi_wea_pu_in, padi_wea_convu_in,
-    padi_addra_pu_in, padi_addra_convu_in)
+    multiplex : process (padding_en_in, convolve_en_in, comm_en_in, ioi_wea_pu_in,
+    ioi_wea_convu_in, ioi_wea_comm_in, ioi_addra_pu_in, ioi_addra_convu_in,
+    ioi_addra_comm_in, ioi_dina_convu_in, ioi_dina_comm_in, padi_wea_pu_in,
+    padi_wea_convu_in, padi_addra_pu_in, padi_addra_convu_in)
         begin
-            if (padding_en_in = '1' and convolve_en_in = '0') then
+            if (padding_en_in = '1' and convolve_en_in = '0' and comm_en_in = '0') then
                 -- if enable data from padding unit
                 ioi_wea_out <= ioi_wea_pu_in;
                 ioi_addra_out <= ioi_addra_pu_in;
+                ioi_dina_out <= std_logic_vector(to_unsigned(0, data_size_g));
                 padi_wea_out <= padi_wea_pu_in;
                 padi_addra_out <= padi_addra_pu_in;
-            elsif (padding_en_in = '0' and convolve_en_in = '1') then
+            elsif (padding_en_in = '0' and convolve_en_in = '1' and comm_en_in = '0') then
                 -- if enable data from convolution unit
                 ioi_wea_out <= ioi_wea_convu_in;
                 ioi_addra_out <= ioi_addra_convu_in;
+                ioi_dina_out <= ioi_dina_convu_in;
                 padi_wea_out <= padi_wea_convu_in;
                 padi_addra_out <= padi_addra_convu_in;
+            elsif (padding_en_in = '0' and convolve_en_in = '0' and comm_en_in = '1') then
+                -- if enable data from uart communication unit
+                ioi_wea_out <= ioi_wea_comm_in;
+                ioi_addra_out <= ioi_addra_comm_in;
+                ioi_dina_out <= ioi_dina_comm_in;
+                padi_wea_out <= "0";
+                padi_addra_out <= std_logic_vector(to_unsigned(0, addr_length_g));
             else
                 --when unintentional inputs
                 ioi_wea_out <= "0";
                 ioi_addra_out <= std_logic_vector(to_unsigned(0, addr_length_g));
+                ioi_dina_out <= std_logic_vector(to_unsigned(0, data_size_g));
                 padi_wea_out <= "0";
                 padi_addra_out <= std_logic_vector(to_unsigned(0, addr_length_g));
             end if;

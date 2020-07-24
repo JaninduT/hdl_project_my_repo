@@ -101,7 +101,7 @@ component Convolution is
            write_en_p_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
            paddone_in : in STD_LOGIC;
            convdone_out : out STD_LOGIC;
-           reset_in :in STD_LOGIC );  
+           rst_n :in STD_LOGIC );  
 end component;
 
 component control_unit is
@@ -298,7 +298,7 @@ padding_unit_1_pu : padding_unit
 convolution_unit_1_convu : Convolution
     port map(data_a_in => douta_from_padi,
              clk => clk,
-             reset_in => rst_n,
+             rst_n => rst_n,
              paddone_in => start_convolve_cu_to_convu,
              data_a_out => ioi_dina_convu_to_mux,
              write_en_a_out => ioi_wea_convu_to_mux,

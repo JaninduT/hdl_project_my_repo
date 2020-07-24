@@ -46,14 +46,14 @@ entity Convolution is
            write_en_p_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);             -- enable pin to the padded image ram.
            paddone_in : in STD_LOGIC;                                     -- signal notifying the padding is done.
            convdone_out : out STD_LOGIC;                             -- signal notifying the concolution is done.
-           reset_in :in STD_LOGIC );                                 -- reset signal  
+           rst_n :in STD_LOGIC );                                 -- reset signal  
 end Convolution;
 
 architecture Behavioral of Convolution is
 
 begin
 
- convolve : process ( clk, reset_in, data_a_in, paddone_in )
+ convolve : process ( clk, rst_n, data_a_in, paddone_in )
      constant col_row_c      : INTEGER := 27;  --number of rows/columns
      variable cur_opixel_v   : INTEGER := 0;   --pixel address where the convolved value is going to be placed.
      variable cur_ipixel_v   : INTEGER := col_row_c+1; -- corresponding pixel address in the padded image ram.
@@ -62,7 +62,7 @@ begin
      variable total_v        : unsigned (total_bit_size downto 0) := "000000000000"; 
      variable cur_pix_kern_v :INTEGER :=0; --current iteration of a single kernal*window (0-9)
     begin
-        if (reset_in = '0') then
+        if (rst_n = '0') then
             cur_opixel_v := 0;
             cur_ipixel_v := col_row_c+1;
             cur_col_v    := 1;

@@ -131,7 +131,7 @@ stimuli : process
         assert (ioi_addra_out = "0000000001" and ioi_wea_out = "1" and ioi_dina_out = "00000000" and padi_wea_out = "0" and padi_addra_out = "0000000001")
             report "Multiplexing Logic Error(pu enabled)"
             severity WARNING;
-        wait for 40ns;
+        wait for 30ns;
         padding_en_in <= '0';
         convolve_en_in <= '1';
         comm_en_in <= '0';
@@ -139,7 +139,7 @@ stimuli : process
         assert (ioi_addra_out = "0000000010" and ioi_wea_out = "0" and ioi_dina_out = "10101010" and padi_wea_out = "1" and padi_addra_out = "0000000010")
             report "Multiplexing Logic Error(convu enabled)"
             severity WARNING;
-        wait for 40ns;
+        wait for 30ns;
         padding_en_in <= '0';
         convolve_en_in <= '0';
         comm_en_in <= '1';
@@ -147,7 +147,7 @@ stimuli : process
         assert (ioi_addra_out = "0000000011" and ioi_wea_out = "1" and ioi_dina_out = "10111011" and padi_wea_out = "0" and padi_addra_out = "0000000000")
             report "Multiplexing Logic Error(comm enabled)"
             severity WARNING;
-        wait for 40ns;
+        wait for 30ns;
         padding_en_in <= '0';
         convolve_en_in <= '0';
         comm_en_in <= '0';
@@ -155,7 +155,7 @@ stimuli : process
         assert (ioi_addra_out = "0000000000" and ioi_wea_out = "0" and ioi_dina_out = "00000000" and padi_wea_out = "0" and padi_addra_out = "0000000000")
             report "Multiplexing Logic Error(unintentional inputs)"
             severity WARNING;
-        wait for 20ns;
+        wait for 30ns;
         padding_en_in <= '1';
         convolve_en_in <= '1';
         comm_en_in <= '1';

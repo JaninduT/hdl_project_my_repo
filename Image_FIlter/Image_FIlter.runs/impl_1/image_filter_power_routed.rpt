@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Thu Jul 23 22:33:13 2020
+| Date             : Fri Jul 24 21:08:12 2020
 | Host             : DESKTOP-V5A9UPS running 64-bit major release  (build 9200)
 | Command          : report_power -file image_filter_power_routed.rpt -pb image_filter_power_summary_routed.pb -rpx image_filter_power_routed.rpx
 | Design           : image_filter
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 5.479        |
+| Total On-Chip Power (W)  | 5.511        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 5.385        |
+| Dynamic (W)              | 5.416        |
 | Device Static (W)        | 0.095        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 57.6         |
-| Junction Temperature (C) | 52.4         |
+| Max Ambient (C)          | 57.4         |
+| Junction Temperature (C) | 52.6         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,19 +52,19 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Slice Logic             |     2.659 |     2062 |       --- |             --- |
-|   LUT as Logic          |     2.279 |      940 |     20800 |            4.52 |
-|   CARRY4                |     0.298 |      152 |      8150 |            1.87 |
-|   Register              |     0.076 |      711 |     41600 |            1.71 |
+| Slice Logic             |     2.547 |     2075 |       --- |             --- |
+|   LUT as Logic          |     2.157 |      950 |     20800 |            4.57 |
+|   CARRY4                |     0.301 |      152 |      8150 |            1.87 |
+|   Register              |     0.082 |      712 |     41600 |            1.71 |
 |   BUFG                  |     0.006 |        1 |        32 |            3.13 |
-|   LUT as Shift Register |    <0.001 |       10 |      9600 |            0.10 |
 |   F7/F8 Muxes           |    <0.001 |        5 |     32600 |            0.02 |
+|   LUT as Shift Register |    <0.001 |       10 |      9600 |            0.10 |
 |   Others                |     0.000 |       29 |       --- |             --- |
-| Signals                 |     2.338 |     1715 |       --- |             --- |
+| Signals                 |     2.483 |     1728 |       --- |             --- |
 | Block RAM               |     0.192 |        1 |        50 |            2.00 |
 | I/O                     |     0.195 |        6 |       106 |            5.66 |
 | Static Power            |     0.095 |          |           |                 |
-| Total                   |     5.479 |          |           |                 |
+| Total                   |     5.511 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     5.215 |       5.188 |      0.027 |
+| Vccint    |       1.000 |     5.247 |       5.220 |      0.027 |
 | Vccaux    |       1.800 |     0.029 |       0.015 |      0.014 |
 | Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -141,22 +141,22 @@ Table of Contents
 +----------------------------------+-----------+
 | Name                             | Power (W) |
 +----------------------------------+-----------+
-| image_filter                     |     5.385 |
-|   axi_uartlite_module_1_auu      |     0.261 |
-|     U0                           |     0.261 |
-|       AXI_LITE_IPIF_I            |     0.020 |
-|       UARTLITE_CORE_I            |     0.240 |
-|   control_unit_1_cu              |     0.109 |
-|   convolution_unit_1_convu       |     1.448 |
-|   input_output_ram_1_ioi         |     0.247 |
-|     U0                           |     0.247 |
-|       inst_blk_mem_gen           |     0.247 |
+| image_filter                     |     5.416 |
+|   axi_uartlite_module_1_auu      |     0.259 |
+|     U0                           |     0.259 |
+|       AXI_LITE_IPIF_I            |     0.024 |
+|       UARTLITE_CORE_I            |     0.235 |
+|   control_unit_1_cu              |     0.089 |
+|   convolution_unit_1_convu       |     1.574 |
+|   input_output_ram_1_ioi         |     0.268 |
+|     U0                           |     0.268 |
+|       inst_blk_mem_gen           |     0.268 |
 |   padded_image_ram_1_padi        |     0.164 |
 |     U0                           |     0.164 |
 |       inst_blk_mem_gen           |     0.164 |
-|   padding_unit_1_pu              |     1.879 |
-|   ram_input_mux_1_mux            |     0.060 |
-|   uart_communication_unit_1_comm |     0.961 |
+|   padding_unit_1_pu              |     1.874 |
+|   ram_input_mux_1_mux            |     0.041 |
+|   uart_communication_unit_1_comm |     0.890 |
 +----------------------------------+-----------+
 
 

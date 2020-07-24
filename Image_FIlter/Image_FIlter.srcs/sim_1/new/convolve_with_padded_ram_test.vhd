@@ -45,7 +45,8 @@ component Convolution is
            waddr : out STD_LOGIC_VECTOR(4 DOWNTO 0);
            wea : out STD_LOGIC_VECTOR( 0 downto 0 ) := "0";
            paddone : in STD_LOGIC;
-           convdone : out STD_LOGIC:='0');
+           convdone : out STD_LOGIC:='0';
+           rst_n : in STD_LOGIC);
 end component;
 
 component padded_image_ram is
@@ -64,6 +65,7 @@ end component;
 signal dina : STD_LOGIC_VECTOR(7 DOWNTO 0);
 signal clock: STD_LOGIC :='0';
 signal paddone: STD_LOGIC;
+signal rst_n: STD_LOGIC;
 signal douta: STD_LOGIC_VECTOR(7 DOWNTO 0);
 signal wea: STD_LOGIC_VECTOR ( 0 downto 0) := "0";
 signal wea_to_padded: STD_LOGIC_VECTOR ( 0 downto 0) := "0";
@@ -77,6 +79,7 @@ begin
 uut1 : Convolution
     port map(dina=>dina,
              clock=>clock,
+             rst_n => rst_n,
              paddone=>paddone,
              douta=>douta,
              wea=>wea,
@@ -102,6 +105,7 @@ stimuli : process
     begin
         paddone <= '0';
         wea_to_padded <= "0";
+        rst_n <= '1';
         wait for 5ns;
         paddone <= '1';
 --        wait for 10ns;

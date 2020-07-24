@@ -44,24 +44,24 @@ entity control_unit is
            --signal to start the image filtering process.
            start_op_in : in STD_LOGIC;
            --signal that indicates completion of image filtering process.
-           finished_op_out : out STD_LOGIC;
+           finished_op_out : out STD_LOGIC := '0';
            --signal ram input mux to enable signal from padding unit to
            --reach memory elements.
-           enable_mux_padding_out : out STD_LOGIC;
+           enable_mux_padding_out : out STD_LOGIC := '0';
            --signal ram input mux to enable signal from convolution unit to
            --reach memory elements.
-           enable_mux_convolve_out : out STD_LOGIC;
+           enable_mux_convolve_out : out STD_LOGIC := '0';
            --signal ram input mux to enable signal from uart communication unit
            --to reach memory elements.
-           enable_mux_comm_out : out STD_LOGIC;
+           enable_mux_comm_out : out STD_LOGIC := '0';
            --signal to start the padding unit oprtation.
-           start_padding_out : out STD_LOGIC;
+           start_padding_out : out STD_LOGIC := '0';
            --signal to start the convolution unit oprtation.
-           start_convolve_out : out STD_LOGIC;
+           start_convolve_out : out STD_LOGIC := '0';
            --signal to start the uart communication unit oprtation.
-           start_comm_out : out STD_LOGIC;
+           start_comm_out : out STD_LOGIC := '0';
            --signal to select communication operation.(Send/Receive)
-           select_comm_op_out : out STD_LOGIC);
+           select_comm_op_out : out STD_LOGIC := '0');
 end control_unit;
 
 architecture Behavioral of control_unit is

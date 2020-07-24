@@ -41,6 +41,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity padding_unit is
     Generic (addr_length_g : Integer := 10; --size of the memory address(10bits)
              data_size_g : Integer := 8; --size of the pixel data (8bits)
+             base_val_g : Integer := 0; --generic to store base initialization value.
              input_image_length_g : Integer := 25; --length of the input image
              output_image_length_g : Integer := 27); --length of the output image(input_length+2)
              
@@ -49,25 +50,25 @@ entity padding_unit is
            --gets start signal for the padding process
            start_in : in STD_LOGIC;
            --outs finish siganl of padding process
-           finished_out : out STD_LOGIC;
+           finished_out : out STD_LOGIC := '0';
            --write enable signal for input/output ram
-           ioi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
+           ioi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0) := "0";
            --address for input/output ram 
-           ioi_addra_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0);
+           ioi_addra_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0) := std_logic_vector(to_unsigned(base_val_g, addr_length_g));
            --data out bus from input/output ram
            ioi_douta_in : in STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0);
            --write enable signal for padding ram port a
-           padi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
+           padi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0) := "0";
            --address for padding ram port a
-           padi_addra_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0);
+           padi_addra_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0) := std_logic_vector(to_unsigned(base_val_g, addr_length_g));
            --data in bus for padding ram port a
-           padi_dina_out : out STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0);
+           padi_dina_out : out STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0) := std_logic_vector(to_unsigned(base_val_g, data_size_g));
            --write enable signal for padding ram port b
-           padi_web_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);
+           padi_web_out : out STD_LOGIC_VECTOR(0 DOWNTO 0) := "0";
            --address for padding ram port b
-           padi_addrb_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0);
+           padi_addrb_out : out STD_LOGIC_VECTOR(addr_length_g -1 DOWNTO 0) := std_logic_vector(to_unsigned(base_val_g, addr_length_g));
            --data in bus for padding ram port b
-           padi_dinb_out : out STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0));
+           padi_dinb_out : out STD_LOGIC_VECTOR(data_size_g -1 DOWNTO 0) := std_logic_vector(to_unsigned(base_val_g, data_size_g)));
 end padding_unit;
 
 architecture Behavioral of padding_unit is
@@ -125,11 +126,13 @@ begin
                 bottom_left := "00000000";
                 bottom_right := "00000000";
                 ioi_wea_out <= "0";
+                finished_out <= '0';
             elsif (clk 'event and clk = '1') then
                 if (start_in = '1' and started = '0') then
                     --mark started state as 1 upone receiving start signal.
                     started := '1';
                     ioi_wea_out <= "0";
+                    finished_out <= '0';
                 elsif (started = '1') then
                     --traverse from row 0 to 24
                     if (row /= input_image_length_g) then

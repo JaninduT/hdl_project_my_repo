@@ -49,7 +49,7 @@ entity padding_unit is
            rst_n : in STD_LOGIC;
            --gets start signal for the padding process
            start_in : in STD_LOGIC;
-           --outs finish siganl of padding process
+           --outputs finish siganl of padding process
            finished_out : out STD_LOGIC := '0';
            --write enable signal for input/output ram
            ioi_wea_out : out STD_LOGIC_VECTOR(0 DOWNTO 0) := "0";

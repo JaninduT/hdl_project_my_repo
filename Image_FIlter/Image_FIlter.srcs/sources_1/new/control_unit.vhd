@@ -66,9 +66,6 @@ end control_unit;
 
 architecture Behavioral of control_unit is
 
-type state is (Idle, Data_Receive, Padding, Convolving, Data_Sending, Finished);
-signal op_state : state;
-
 -- There are 6 states in the fsm.
 -- 1. Idle - fsm waits in Idle state until the start_op_in signal gets high to
 -- start the image filtering process by starting uart communication unit
@@ -83,9 +80,12 @@ signal op_state : state;
 -- 5. Data_Sending - After the Convolution state, fsm goes to Data_Sending state
 -- by enabling uart communication  unit to send data and when in Data_Sending
 -- state, it waits till the operation finished signal.
--- 4. Finished - After the Data_Sending state, fsm goes to Finished state
+-- 6. Finished - After the Data_Sending state, fsm goes to Finished state
 -- with the convolve done signal and when in finished state, fsm signal finished_op_out
 -- for one clock cycle and goes to Idle state.
+
+type state is (Idle, Data_Receive, Padding, Convolving, Data_Sending, Finished);
+signal op_state : state;
 
 begin
     fsm : process (clk, rst_n)

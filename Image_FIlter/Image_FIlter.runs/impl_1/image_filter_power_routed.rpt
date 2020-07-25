@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
-| Date             : Fri Jul 24 21:08:12 2020
+| Date             : Sat Jul 25 18:15:33 2020
 | Host             : DESKTOP-V5A9UPS running 64-bit major release  (build 9200)
 | Command          : report_power -file image_filter_power_routed.rpt -pb image_filter_power_summary_routed.pb -rpx image_filter_power_routed.rpx
 | Design           : image_filter
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 5.511        |
+| Total On-Chip Power (W)  | 5.667        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 5.416        |
-| Device Static (W)        | 0.095        |
+| Dynamic (W)              | 5.571        |
+| Device Static (W)        | 0.096        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 57.4         |
-| Junction Temperature (C) | 52.6         |
+| Max Ambient (C)          | 56.7         |
+| Junction Temperature (C) | 53.3         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,19 +52,19 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Slice Logic             |     2.547 |     2075 |       --- |             --- |
-|   LUT as Logic          |     2.157 |      950 |     20800 |            4.57 |
-|   CARRY4                |     0.301 |      152 |      8150 |            1.87 |
-|   Register              |     0.082 |      712 |     41600 |            1.71 |
+| Slice Logic             |     2.696 |     2071 |       --- |             --- |
+|   LUT as Logic          |     2.306 |      954 |     20800 |            4.59 |
+|   CARRY4                |     0.302 |      152 |      8150 |            1.87 |
+|   Register              |     0.081 |      711 |     41600 |            1.71 |
 |   BUFG                  |     0.006 |        1 |        32 |            3.13 |
-|   F7/F8 Muxes           |    <0.001 |        5 |     32600 |            0.02 |
 |   LUT as Shift Register |    <0.001 |       10 |      9600 |            0.10 |
+|   F7/F8 Muxes           |    <0.001 |        6 |     32600 |            0.02 |
 |   Others                |     0.000 |       29 |       --- |             --- |
-| Signals                 |     2.483 |     1728 |       --- |             --- |
+| Signals                 |     2.477 |     1721 |       --- |             --- |
 | Block RAM               |     0.192 |        1 |        50 |            2.00 |
-| I/O                     |     0.195 |        6 |       106 |            5.66 |
-| Static Power            |     0.095 |          |           |                 |
-| Total                   |     5.511 |          |           |                 |
+| I/O                     |     0.206 |        6 |       106 |            5.66 |
+| Static Power            |     0.096 |          |           |                 |
+| Total                   |     5.667 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,9 +74,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     5.247 |       5.220 |      0.027 |
-| Vccaux    |       1.800 |     0.029 |       0.015 |      0.014 |
-| Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |
+| Vccint    |       1.000 |     5.392 |       5.363 |      0.028 |
+| Vccaux    |       1.800 |     0.030 |       0.015 |      0.014 |
+| Vcco33    |       3.300 |     0.005 |       0.004 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.085 |       0.084 |      0.001 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -141,22 +141,22 @@ Table of Contents
 +----------------------------------+-----------+
 | Name                             | Power (W) |
 +----------------------------------+-----------+
-| image_filter                     |     5.416 |
-|   axi_uartlite_module_1_auu      |     0.259 |
-|     U0                           |     0.259 |
-|       AXI_LITE_IPIF_I            |     0.024 |
-|       UARTLITE_CORE_I            |     0.235 |
+| image_filter                     |     5.571 |
+|   axi_uartlite_module_1_auu      |     0.285 |
+|     U0                           |     0.285 |
+|       AXI_LITE_IPIF_I            |     0.030 |
+|       UARTLITE_CORE_I            |     0.256 |
 |   control_unit_1_cu              |     0.089 |
-|   convolution_unit_1_convu       |     1.574 |
-|   input_output_ram_1_ioi         |     0.268 |
-|     U0                           |     0.268 |
-|       inst_blk_mem_gen           |     0.268 |
-|   padded_image_ram_1_padi        |     0.164 |
-|     U0                           |     0.164 |
-|       inst_blk_mem_gen           |     0.164 |
-|   padding_unit_1_pu              |     1.874 |
-|   ram_input_mux_1_mux            |     0.041 |
-|   uart_communication_unit_1_comm |     0.890 |
+|   convolution_unit_1_convu       |     1.487 |
+|   input_output_ram_1_ioi         |     0.246 |
+|     U0                           |     0.246 |
+|       inst_blk_mem_gen           |     0.246 |
+|   padded_image_ram_1_padi        |     0.205 |
+|     U0                           |     0.205 |
+|       inst_blk_mem_gen           |     0.205 |
+|   padding_unit_1_pu              |     1.893 |
+|   ram_input_mux_1_mux            |     0.032 |
+|   uart_communication_unit_1_comm |     1.064 |
 +----------------------------------+-----------+
 
 

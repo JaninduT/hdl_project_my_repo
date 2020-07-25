@@ -149,7 +149,8 @@ end component;
 
 component uart_comm_unit is
     Generic (mem_addr_size_g : integer := 10;
-             pixel_data_size_g : integer := 8);
+             pixel_data_size_g : integer := 8;
+             base_val : integer := 0);
 
     Port ( clk : in STD_LOGIC;
            rst_n : in STD_LOGIC;

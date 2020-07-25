@@ -25,6 +25,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
+use std.textio.all;
+use IEEE.std_logic_textio.all;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -149,6 +151,29 @@ stimuli : process
         wait for 10ns;
         start <= '0';
         wait;
+    end process;
+
+dump_to_text : process (clk)
+    variable out_value : line;
+    file padded_ram : text is out "padded_ram.txt";
+    begin
+        if ( clk 'event and clk = '1' ) then
+            if ( padi_wea = "1" ) then
+                write(out_value, to_integer(unsigned(padi_addra)), left, 3);
+                write(out_value, string'(","));
+                write(out_value, to_integer(unsigned(padi_dina)), left, 3);
+                writeline(padded_ram, out_value);
+            end if;
+            if ( padi_web = "1" ) then
+                write(out_value, to_integer(unsigned(padi_addrb)), left, 3);
+                write(out_value, string'(","));
+                write(out_value, to_integer(unsigned(padi_dinb)), left, 3);
+                writeline(padded_ram, out_value);
+            end if;
+            if ( finished = '1' ) then
+                file_close(padded_ram);
+            end if;
+        end if;
     end process;
 
 end Behavioral;
